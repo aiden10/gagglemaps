@@ -1,3 +1,5 @@
+from DBHandler import DBHandler
+
 buildings_dict = {
     'AL': 'Arts Lecture Hall',
     'B1': 'Biology 1',
@@ -43,3 +45,14 @@ QNC = ["QNC-1502", "QNC-1506", "QNC-1507", "QNC-2501", "QNC-2502"]
 RCH = ["RCH-101", "RCH-103", "RCH-105", "RCH-106", "RCH-109", "RCH-110", "RCH-112", "RCH-204", "RCH-205", "RCH-206", "RCH-207", "RCH-208", "RCH-209", "RCH-211", "RCH-212", "RCH-301", "RCH-302", "RCH-305", "RCH-306", "RCH-307", "RCH-308", "RCH-309"]
 STC = ["STC-0010", "STC-0020", "STC-0040", "STC-0050", "STC-0060", "STC-1012"]
 UTD = ["UTD-105"]
+
+db = DBHandler()
+
+all_rooms = [AL, B1, B2, DC, DWE, E2, EIT, EV1, EV2, EV3, LHI, HH, M3, MC, ML, PAS, PHY, QNC, RCH, STC, UTD]
+
+for building in all_rooms:
+    for room in building:
+        building_code = room.split('-')[0]
+        room_number = room.split('-')[1]
+        building_name = buildings_dict[building_code]
+        db.create_room(building_code, str(room_number), building_name)
