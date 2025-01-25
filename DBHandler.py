@@ -11,7 +11,7 @@ class DBHandler:
         self.cursor = self.db.cursor()
 
     def create_room(self, building, room_number):
-        query = 'INSERT INTO rooms (RoomID) VALUES (\'{building}{room_number}\')'
+        query = f'INSERT INTO rooms (RoomID) VALUES (\'{building}{room_number}\')'
         try:
             self.cursor.execute(query)
             self.db.commit()
