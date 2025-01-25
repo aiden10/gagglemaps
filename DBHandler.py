@@ -19,6 +19,20 @@ class DBHandler:
             return []
         
         return results
+    
+
     # functions to write to database
     # functions to update database entry
+    def update_room(self, building, room_number, quantity):
+        query = f'UPDATE rooms SET PeopleCount = {quantity} WHERE RoomID = {building}{room_number}'
+        try:
+            self.cursor.execute(query)
+            self.db.commit()
+            print(f"{self.cursor.rowcount} record(s) affected")
+            return True
+        except Exception as e:
+            print(f'Error occurred while updating database in function update_room: {e}')
+            self.db.rollback()
+            return False
+
     # functions to get database entries
