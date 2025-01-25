@@ -10,6 +10,18 @@ class DBHandler:
         )
         self.cursor = self.db.cursor()
 
+    def create_room(self, building, room_number):
+        query = 'INSERT INTO rooms (RoomID) VALUES (\'{building}{room_number}\')'
+        try:
+            self.cursor.execute(query)
+            self.db.commit()
+            return True
+        except Exception as e:
+            print(f'Error occurred while updating database in function update_room: {e}')
+            self.db.rollback()
+            return False
+
+
     def get_room(self, room_id):
         query = f'SELECT * FROM rooms WHERE room_id = {room_id}'
         try:
