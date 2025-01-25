@@ -1,6 +1,7 @@
 # import the necessary packages
 import numpy as np
 import cv2
+from DBHandler import DBHandler
 
 url = 'http://192.168.111.63:8080/video'
 
