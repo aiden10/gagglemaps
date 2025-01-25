@@ -1,0 +1,1075 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<PAGE id='SSR_CLSRCH_RSLT'><GENSCRIPT id='script'><![CDATA[var oWin=window;
+ var oDoc = window.document;
+oWin.strCurrUrl='https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?ACAD_CAREER=UG%20%20&EMPLID=21125676&INSTITUTION=UWATR&STRM=1251&PAGE=SSR_CLSRCH_ENTRY';
+oWin.strReqURL='https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?ACAD_CAREER=UG%20%20&EMPLID=21125676&INSTITUTION=UWATR&STRM=1251&PAGE=SSR_CLSRCH_ENTRY&';
+bPTActEnterKey = false;
+if ((typeof window.modWin == 'undefined' || window.modWin == null) && (typeof window.modWinClosed == 'undefined' || window.modWinClosed == null) && window.winParent_win0) {oWin=window.winParent_win0; oDoc=oWin.document;}
+]]></GENSCRIPT><GENSCRIPT id='script'><![CDATA[oWin.gridRowSelRgbColor_win0 ='rgb(238,238,238)';
+]]></GENSCRIPT><GENSCRIPT id='onloadScript'><![CDATA[
+ g_bAccessibilityMode=false;
+var actn='';
+var oWin=window; var oDoc=window.document;
+if (!isModeless(MTop().modId) && (typeof window.modWin == 'undefined' || window.modWin == null) && (typeof window.modWinClosed == 'undefined' || window.modWinClosed == null) && window.winParent) 
+ {oWin=window.winParent; oDoc=oWin.document;}
+actn=oDoc.win0.ICAction.value;
+oDoc.win0.ICAction.value='None';
+oDoc.win0.ICResubmit.value='0';
+oDoc.win0.ICPanelHelpUrl.value='';
+oWin.nResubmit='0';
+oDoc.win0.ICStateNum.value=10;initVars_win0();
+if (typeof resetVars_win0 == "function")resetVars_win0();
+oDoc.win0.ICFocus.value='';
+setupTimeout2();
+if (oDoc.win0.ICTypeAheadID) oDoc.win0.ICTypeAheadID.value='';
+ptEvent.add(window,'scroll',positionWAIT_win0);
+ptCommonObj2.generateABNSearchResults(document.win0);
+getGblSrchPageNum(actn);
+if (gSrchRsltPageNum <= 5) getAllRelatedActions();
+
+if (typeof(myAppsWindowOpenJS) != 'undefined' && myAppsWindowOpenJS != null && myAppsWindowOpenJS != '')
+ {
+try {eval(myAppsWindowOpenJS);} catch(e) {}
+  myAppsWindowOpenJS=null;
+}
+if (typeof(HelppopupObj_win0) != 'undefined' && HelppopupObj_win0 != null)
+ HelppopupObj_win0.StopPopup('win0');
+if (typeof(ptLongEditCounter) != 'undefined' && ptLongEditCounter != null)
+   ptLongEditCounter.onLoadLongEditCounter();
+
+doModalOnLoad_win0(false, false, true);
+ResetGlyph_win0();
+self.scroll(0,0);
+if (typeof ptGridObj_win0 != 'undefined' && ptGridObj_win0)
+ ptGridObj_win0.clearGridArr();
+objToBeFocus = null;
+if (bPTDrag) CancelDragAccessible();
+ bPTDrag = false;
+if (typeof oWin == 'undefined') setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+ else
+ oWin.setEventHandlers_win0('ICFirstAnchor_win0', 'ICLastAnchor_win0', false);
+if (top.window.isFModeLayout() && (typeof top.window.initHelp == 'function')) top.window.initHelp();
+postUrl_win0='https://quest.pecs.uwaterloo.ca/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL';
+try{top.window.ptgpPage.setComponentTitle();}catch(e){}
+setFocus_win0('DERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$',-1);
+ptLoadingStatus_empty(0);
+setupTimeout2();
+processing_win0(0,3000);]]></GENSCRIPT>
+<FIELD id='win0divPSHIDDENFIELDS'><![CDATA[<input type='hidden' name='ICType' id='ICType' value='Panel' />
+<input type='hidden' name='ICElementNum' id='ICElementNum' value='0' />
+<input type='hidden' name='ICStateNum' id='ICStateNum' value='10' />
+<input type='hidden' name='ICAction' id='ICAction' value='None' />
+<input type='hidden' name='ICModelCancel' id='ICModelCancel' value='0' />
+<input type='hidden' name='ICXPos' id='ICXPos' value='0' />
+<input type='hidden' name='ICYPos' id='ICYPos' value='0' />
+<input type='hidden' name='ResponsetoDiffFrame' id='ResponsetoDiffFrame' value='-1' />
+<input type='hidden' name='TargetFrameName' id='TargetFrameName' value='None' />
+<input type='hidden' name='FacetPath' id='FacetPath' value='None' />
+<input type='hidden' name='PrmtTbl' id='PrmtTbl' value='' />
+<input type='hidden' name='PrmtTbl_fn' id='PrmtTbl_fn' value='' />
+<input type='hidden' name='PrmtTbl_fv' id='PrmtTbl_fv' value='' />
+<input type='hidden' name='TA_SkipFldNms' id='TA_SkipFldNms' value='' />
+<input type='hidden' name='ICFocus' id='ICFocus' value='' />
+<input type='hidden' name='ICSaveWarningFilter' id='ICSaveWarningFilter' value='0' />
+<input type='hidden' name='ICChanged' id='ICChanged' value='-1' />
+<input type='hidden' name='ICSkipPending' id='ICSkipPending' value='0' />
+<input type='hidden' name='ICAutoSave' id='ICAutoSave' value='0' />
+<input type='hidden' name='ICResubmit' id='ICResubmit' value='0' />
+<input type='hidden' name='ICSID' id='ICSID' value='GKxD1Q60OsFhoqIhBabrqHtaquWuZ7Ov8CD1Kg6jWrs=' />
+<input type='hidden' name='ICAGTarget' id='ICAGTarget' value='true' />
+<input type='hidden' name='ICActionPrompt' id='ICActionPrompt' value='false' />
+<input type='hidden' name='ICTypeAheadID' id='ICTypeAheadID' value='' />
+<input type='hidden' name='ICBcDomData' id='ICBcDomData' value='' />
+<input type='hidden' name='ICPanelHelpUrl' id='ICPanelHelpUrl' value='' />
+<input type='hidden' name='ICPanelName' id='ICPanelName' value='' />
+<input type='hidden' name='ICFind' id='ICFind' value='' />
+<input type='hidden' name='ICAddCount' id='ICAddCount' value='' />
+<input type='hidden' name='ICAppClsData' id='ICAppClsData' value='' />
+]]></FIELD>
+<FIELD id='win0divPAGEBAR'><![CDATA[]]></FIELD>
+<FIELD id='win0divPSPANELTABS'><![CDATA[]]></FIELD>
+<FIELD id='win0divPAGECONTAINER'><![CDATA[<table class='PSPAGECONTAINER' role='main' aria-labelledby='app_label'><tr><td>
+<DIV class='ps_pspagecontainer' id='win0divPSPAGECONTAINER'><table role='presentation'  border='0' id='ACE_width' cellpadding='0' cellspacing='0' class='PSPAGECONTAINER' cols='16' width='1014'>
+<tr>
+<td width='0' height='3'></td>
+<td width='4'></td>
+<td width='4'></td>
+<td width='4'></td>
+<td width='5'></td>
+<td width='219'></td>
+<td width='168'></td>
+<td width='168'></td>
+<td width='8'></td>
+<td width='4'></td>
+<td width='68'></td>
+<td width='24'></td>
+<td width='8'></td>
+<td width='93'></td>
+<td width='104'></td>
+<td width='133'></td>
+</tr>
+<tr>
+<td height='169'></td>
+<td colspan='10'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_CLSRCH_GROUPBOX1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='651'>
+<tr><td width='649'>
+<table role='presentation'  border='0' id='ACE_DERIVED_CLSRCH_GROUPBOX1' cellpadding='0' cellspacing='0' cols='3' width='649' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='636'></td>
+<td width='10'></td>
+</tr>
+<tr>
+<td height='157'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_GROUP_BOX'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='635'>
+<tr><td width='633'>
+<table role='presentation'  border='0' id='ACE_DERIVED_REGFRM1_GROUP_BOX' cellpadding='0' cellspacing='0' cols='3' width='633' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='9'></td>
+<td width='621'></td>
+</tr>
+<tr>
+<td height='129'></td>
+<td colspan='2'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_GROUP_BOX'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='655'>
+<tr><td width='653'>
+<table role='presentation'  border='0' id='ACE_DERIVED_SSTSNAV_GROUP_BOX' cellpadding='0' cellspacing='0' cols='9' width='653' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='7' height='0'></td>
+<td width='1'></td>
+<td width='1'></td>
+<td width='306'></td>
+<td width='172'></td>
+<td width='92'></td>
+<td width='33'></td>
+<td width='39'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='7' colspan='4'></td>
+<td colspan='4' rowspan='2'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSTS_MAIN_GOTO'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='335'>
+<tr><td width='333'>
+<table role='presentation'  border='0' id='ACE_DERIVED_SSTSNAV_SSTS_MAIN_GOTO' cellpadding='0' cellspacing='0' cols='5' width='333' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='68'></td>
+<td width='3'></td>
+<td width='240'></td>
+<td width='22'></td>
+</tr>
+<tr>
+<td height='3' colspan='3'></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$'><select name='DERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$' id='DERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$' tabindex='17' size='1'  class='PSDROPDOWNLIST' style='width:240px; ' onchange="addchg_win0(this);return doEdits_win0(this,'','N','N','N','N','Y','Y',0);" onkeydown="if ((typeof isLoaderInProcess == 'function') && isLoaderInProcess() && ptCommonObj2!=null) { ptCommonObj2.terminateEvent(event); } " >
+<option value="9999"></option>
+<option value="" selected='selected'>&nbsp; </option>
+<option value="0200">My Academics</option>
+<option value="0100">Student Center</option>
+</select>
+</DIV></td>
+</tr>
+<tr>
+<td height='1' colspan='3'></td>
+<td rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_GO'><a name='DERIVED_SSTSNAV_GO' id='DERIVED_SSTSNAV_GO' tabindex='18' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'DERIVED_SSTSNAV_GO');"><img src='/cs/SS/cache/PT_NAV_GO_1.gif' id='DERIVED_SSTSNAV_GO$IMG'  alt='GO!' title='GO!' border='0' /></a><!-- DERIVED_SSTSNAV_GO --></DIV></td>
+</tr>
+<tr>
+<td height='20'></td>
+<td  valign='top' align='right'>
+<DIV  id='win0divDERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$lbl'><label for='DERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$' id='DERIVED_SSTSNAV_SSTS_MAIN_GOTO$27$_LBL' class='PSDROPDOWNLABEL' >Go To</label></DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='27' colspan='3'></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_PERSON_NAME'><span  class='PALEVEL0PRIMARY' id='DERIVED_SSTSNAV_PERSON_NAME' >Hy Lac Nguyen</span><!-- DERIVED_SSTSNAV_PERSON_NAME -->
+</DIV></td>
+</tr>
+<tr>
+<td height='2' colspan='3'></td>
+</tr>
+<tr>
+<td height='24'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSTS_NAV_TABS_DIS'><div  style="width:1px; " >
+<!-- Begin HTML Area DERIVED_SSTSNAV_SSTS_NAV_TABS_DIS -->
+
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='5'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSTS_NAV_TABS'><div  style="width:604px; " >
+<!-- Begin HTML Area DERIVED_SSTSNAV_SSTS_NAV_TABS -->
+<div id=PSTAB>
+<table border="0" cellspacing="0" cellpadding="0"><tr valign='bottom' role='tablist'><td><a onclick="ShowLoading()" role="tab" href="/psc/SS/ACADEMIC/SA/c/UW_SS_MENU.UW_SSR_SSENRL_GRDE.GBL?Page=UW_SSR_SSENRL_TERM&Action=A" tabindex=20 accesskey="y"><span style="font-size:11px; white-space: nowrap;">M<abbr class="PTUNDERLINE">y</abbr> Academics</span></a></td><td><a onclick="ShowLoading()" role="tab" href="/psc/SS/ACADEMIC/SA/c/UW_CEM.UW_CEM_BYPASS.GBL?Page=UW_CEM_DETECT&Action=U" tabindex=20 ><span style="font-size:11px; white-space: nowrap;">Course Selection (Undergrad only)</span></a></td><td><a onclick="ShowLoading()" role="tab" href="/psc/SS/ACADEMIC/SA/c/UW_CEM.UW_CLASS_SRCH.GBL?Page=UW_SSRCLSRCH_ENT&Action=U" tabindex=20 accesskey="e"><span style="font-size:11px; white-space: nowrap;">S<abbr class="PTUNDERLINE">e</abbr>arch for Classes</span></a></td><!-- <td nowrap="nowrap" id="selectedtab"><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL?Page=SSR_SSENRL_LIST&Action=A" tabindex=20 aria-selected="true" style="white-space:nowrap;float:right;" onclick="ShowLoading()" role="tab"><span style="font-weight:bold;">Enroll</span></a></td> -->
+<td nowrap="nowrap" class="selectedtab"><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL?Page=SSR_SSENRL_LIST&Action=A" tabindex=20 aria-selected="true" style="white-space:nowrap;float:right;" onclick="ShowLoading()" role="tab"><span style="font-weight:bold;">Enroll</span></a></td>
+<!-- rem 31551792 -e --><td class="PSBOTTOMLINE" nowrap="nowrap" vAlign="bottom" width="100%"></td></tr></tr></table>
+</div>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+</tr>
+<tr>
+<td height='28'></td>
+<td rowspan='3'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSTS_NAV_STABS_DIS'><div  style="width:1px; " >
+<!-- Begin HTML Area DERIVED_SSTSNAV_SSTS_NAV_STABS_DIS -->
+
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td colspan='5'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSTS_NAV_SUBTABS'><div  style="width:604px; " >
+<!-- Begin HTML Area DERIVED_SSTSNAV_SSTS_NAV_SUBTABS -->
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#F1F5F6"><tr><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_LIST.GBL?Page=SSR_SSENRL_LIST&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 accesskey="M"><span style="font-size:11px; white-space: nowrap;"><abbr onclick="ShowLoading()" class="PTUNDERLINE">M</abbr>y Class Schedule</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES_2.SSR_SSENRL_CART.GBL?Page=SSR_SSENRL_CART&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 ><span style="font-size:11px; white-space: nowrap;">Shopping Cart</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?Page=SSR_SSENRL_CART&Action=A" onclick="ShowLoading()" class="PTBREADCRUMBCUR" tabindex=22  ><span style="font-size:11px; white-space: nowrap;">Add</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_DROP.GBL?Page=SSR_SSENRL_DROP&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 accesskey="D"><span style="font-size:11px; white-space: nowrap;"><abbr onclick="ShowLoading()" class="PTUNDERLINE">D</abbr>rop</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_SWAP.GBL?Page=SSR_SSENRL_SWAP&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 accesskey="S"><span style="font-size:11px; white-space: nowrap;"><abbr onclick="ShowLoading()" class="PTUNDERLINE">S</abbr>wap</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_EDIT.GBL?Page=SSR_SSENRL_EDIT&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 accesskey="i"><span style="font-size:11px; white-space: nowrap;">Ed<abbr onclick="ShowLoading()" class="PTUNDERLINE">i</abbr>t</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SS_TERM_LINKS.GBL?Page=SSR_SS_TERM_LINKS&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 accesskey="T"><span style="font-size:11px; white-space: nowrap;"><abbr onclick="ShowLoading()" class="PTUNDERLINE">T</abbr>erm Information</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a><span style="font-size:11px; white-space: nowrap;">|</span></a></td>
+<td>&nbsp;</td><td>&nbsp;</td>
+<td><a href="/psc/SS/ACADEMIC/SA/c/UW_SS_MENU.UW_SSR_SSENRL_LIST.GBL?Page=UW_SSR_SSENRL_TERM&Action=A" onclick="ShowLoading()" class="PSHYPERLINK" tabindex=22 ><span style="font-size:11px; white-space: nowrap;">Exam Information</span></a></td>
+<td>&nbsp;</td></tr></tr></table>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+</tr>
+<tr>
+<td height='8'></td>
+<td rowspan='2'></td>
+<td colspan='2' rowspan='2'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_SS_TRANSACT_TITLE'><span role='heading' aria-level='1' class = 'PATRANSACTIONTITLE'id='DERIVED_REGFRM1_SS_TRANSACT_TITLE' >Add Classes</span><!-- DERIVED_REGFRM1_SS_TRANSACT_TITLE -->
+</DIV></td>
+</tr>
+<tr>
+<td height='28'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_STEP1'><table role='presentation'  border='0' id='ACE_DERIVED_REGFRM1_STEP1' cellpadding='0' cellspacing='0' cols='4' width='91' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='4' height='0'></td>
+<td width='24'></td>
+<td width='28'></td>
+<td width='35'></td>
+</tr>
+<tr>
+<td height='26'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_STEP1$2$'><a name='DERIVED_REGFRM1_STEP1$2$' id='DERIVED_REGFRM1_STEP1$2$' tabindex='27' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'DERIVED_REGFRM1_STEP1$2$');"><img src='/cs/SS/cache/PS_CS_STEP01_ENA_ICN_1.gif' id='DERIVED_REGFRM1_STEP1$2$$IMG'  alt='Step 1' title='Step 1' border='0' /></a><!-- DERIVED_REGFRM1_STEP1$2$ --></DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_STEP2'><a name='DERIVED_REGFRM1_STEP2' id='DERIVED_REGFRM1_STEP2' tabindex='28' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'DERIVED_REGFRM1_STEP2');"><img src='/cs/SS/cache/PS_CS_STEP02_DIS_ICN_1.gif' id='DERIVED_REGFRM1_STEP2$IMG'  alt='Step 2' title='Step 2' border='0' /></a><!-- DERIVED_REGFRM1_STEP2 --></DIV></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_STEP3'><a name='DERIVED_REGFRM1_STEP3' id='DERIVED_REGFRM1_STEP3' tabindex='29' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'DERIVED_REGFRM1_STEP3');"><img src='/cs/SS/cache/PS_CS_STEP03_DIS_ICN_1.gif' id='DERIVED_REGFRM1_STEP3$IMG'  alt='Step 3' title='Step 3' border='0' /></a><!-- DERIVED_REGFRM1_STEP3 --></DIV></td>
+</tr>
+</table>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='7' colspan='3'></td>
+</tr>
+<tr>
+<td height='20' colspan='2'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_TITLE1'><span  class='PAPAGETITLE' id='DERIVED_REGFRM1_TITLE1' >Search Results</span><!-- DERIVED_REGFRM1_TITLE1 -->
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='7' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='16'></td>
+</tr>
+<tr>
+<td height='31' colspan='5'></td>
+<td colspan='11'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_CLSRCH_SSS_PAGE_KEYDESCR'><span  class='PSEDITBOX_DISPONLY' id='DERIVED_CLSRCH_SSS_PAGE_KEYDESCR' >University of Waterloo | Winter 2025</span><!-- DERIVED_CLSRCH_SSS_PAGE_KEYDESCR -->
+</DIV></td>
+</tr>
+<tr>
+<td height='82' colspan='3'></td>
+<td colspan='10'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSS_ENR_GROUP_BOX'><table role='presentation'  border='0' id='ACE_DERIVED_SSS_ENR_GROUP_BOX' cellpadding='0' cellspacing='0' cols='4' width='675' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='4' height='0'></td>
+<td width='328'></td>
+<td width='20'></td>
+<td width='323'></td>
+</tr>
+<tr>
+<td height='74'></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSS_ENR_'><table cellpadding='2' cellspacing='0' cols='1'  class='PSGROUPBOXWBO'  width='327'>
+<tr><td width='323'>
+<table role='presentation'  border='0' id='ACE_DERIVED_SSS_ENR_' cellpadding='0' cellspacing='0' cols='6' width='323' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='6' height='0'></td>
+<td width='40'></td>
+<td width='160'></td>
+<td width='104'></td>
+<td width='8'></td>
+<td width='5'></td>
+</tr>
+<tr>
+<td height='6' colspan='3'></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0div$ICField20'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='103'>
+<tr><td width='101'>
+<table role='presentation'  border='0' id='ACE_$ICField20' cellpadding='0' cellspacing='0' cols='2' width='101' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='98'></td>
+</tr>
+<tr>
+<td height='20'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSS_ENR_SSS_SHOW_ALL'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='DERIVED_SSS_ENR_SSS_SHOW_ALL' id='DERIVED_SSS_ENR_SSS_SHOW_ALL' tabindex='31' value='Show All'  class='PSPUSHBUTTON' style='width:96px; ' onclick="submitAction_win0(document.win0,this.id,event);" /></span></a><!-- DERIVED_SSS_ENR_SSS_SHOW_ALL --></DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='15'></td>
+<td colspan='2' rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSS_ENR_SS_CLS_SCHED_LINK'><span id='DERIVED_SSS_ENR_SS_CLS_SCHED_LINK$span'  class='PSHYPERLINK' ><a name='DERIVED_SSS_ENR_SS_CLS_SCHED_LINK' id='DERIVED_SSS_ENR_SS_CLS_SCHED_LINK'  ptlinktgt='pt_peoplecode' tabindex='30' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'DERIVED_SSS_ENR_SS_CLS_SCHED_LINK');"  class='PSHYPERLINK' >My Class Schedule</a></span><!-- DERIVED_SSS_ENR_SS_CLS_SCHED_LINK --></DIV></td>
+</tr>
+<tr>
+<td height='1'></td>
+</tr>
+<tr>
+<td height='8'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField13'><table cellpadding='0' cellspacing='0' cols='1' class='PSFRAMENBO'  width='40'>
+<tr><td width='40' height='8'>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='6'></td>
+</tr>
+<tr>
+<td height='22'></td>
+<td colspan='4'  valign='top' align='left'>
+<DIV    id='win0divSTDNT_ENRL_SSVW$0'>
+<table cellspacing='0' class='PSLEVEL1GRIDNBONBO'  id='STDNT_ENRL_SSVW$scroll$0' role='presentation' dir='ltr' cols='2' width='312' cellpadding='2'>
+<tr id='trSTDNT_ENRL_SSVW$0_row1' bufnum='0' valign='center'>
+<td align='left'  width='53' height='18' class='PSLEVEL1GRIDNBO PSGRIDFIRSTCOLUMN' >
+<DIV    id='win0divDERIVED_SSS_ENR_SSS_SUBJ_CATLG$0'><span  class='PSEDITBOX_DISPONLY' id='DERIVED_SSS_ENR_SSS_SUBJ_CATLG$0' >CHINA 101R</span><!-- DERIVED_SSS_ENR_SSS_SUBJ_CATLG$0 -->
+</DIV></td>
+<td class='PSLEVEL1GRIDNBO'  align='left'  width='158' class='PSLEVEL1GRIDNBO' >
+<DIV    id='win0divDERIVED_SSS_ENR_SSR_MTG_SCHED_LONG$0'><span  class='PSLONGEDITBOX' id='DERIVED_SSS_ENR_SSR_MTG_SCHED_LONG$0' >M 1:00PM - 2:20PM<br />REN 2106</span><!-- DERIVED_SSS_ENR_SSR_MTG_SCHED_LONG$0 -->
+</DIV></td>
+</tr>
+</table>
+</DIV>
+</td>
+</tr>
+<tr>
+<td height='8' colspan='6'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='3'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSS_CRT_'><table cellpadding='2' cellspacing='0' cols='1'  class='PSGROUPBOXWBO'  width='323'>
+<tr><td width='319'>
+<table role='presentation'  border='0' id='ACE_DERIVED_SSS_CRT_' cellpadding='0' cellspacing='0' cols='7' width='319' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='6' height='0'></td>
+<td width='4'></td>
+<td width='40'></td>
+<td width='72'></td>
+<td width='40'></td>
+<td width='152'></td>
+<td width='5'></td>
+</tr>
+<tr>
+<td height='15'></td>
+<td colspan='6' nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSS_CRT_LINK_ADD_ENRL'><span id='DERIVED_SSS_CRT_LINK_ADD_ENRL$span'  class='PSHYPERLINK'  title='My Shopping Cart' ><a name='DERIVED_SSS_CRT_LINK_ADD_ENRL' id='DERIVED_SSS_CRT_LINK_ADD_ENRL'  ptlinktgt='pt_peoplecode' tabindex='137' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'DERIVED_SSS_CRT_LINK_ADD_ENRL');"  class='PSHYPERLINK' >Shopping Cart</a></span><!-- DERIVED_SSS_CRT_LINK_ADD_ENRL --></DIV></td>
+</tr>
+<tr>
+<td height='8' colspan='2'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField37'><table cellpadding='0' cellspacing='0' cols='1' class='PSFRAMENBO'  width='40'>
+<tr><td width='40' height='8'>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField27'><table cellpadding='0' cellspacing='0' cols='1' class='PSFRAMENBO'  width='40'>
+<tr><td width='40' height='8'>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+</tr>
+<tr>
+<td height='22'></td>
+<td colspan='5'  valign='top' align='left'>
+<DIV    id='win0divSSR_REGFORM_VW$0'>
+<table cellspacing='0' class='PSLEVEL1GRIDNBONBO'  id='SSR_REGFORM_VW$scroll$0' role='presentation' dir='ltr' cols='1' width='308' cellpadding='2'>
+<tr id='trSSR_REGFORM_VW$0_row1' bufnum='0' valign='center'>
+<td align='left'  width='108' height='18' class='PSLEVEL1GRIDNBO PSGRIDFIRSTCOLUMN' >
+<DIV    id='win0divDERIVED_SSS_CRT_SSR_MTG_SCHED_LONG$0'><span  class='PSLONGEDITBOX' id='DERIVED_SSS_CRT_SSR_MTG_SCHED_LONG$0' >Your shopping cart is empty.</span><!-- DERIVED_SSS_CRT_SSR_MTG_SCHED_LONG$0 -->
+</DIV></td>
+</tr>
+</table>
+</DIV>
+</td>
+</tr>
+<tr>
+<td height='5' colspan='7'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='0'></td>
+</tr>
+<tr>
+<td height='5' colspan='2'></td>
+</tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='16'></td>
+</tr>
+<tr>
+<td height='44' colspan='4'></td>
+<td colspan='5'  valign='top' align='left'>
+<DIV    id='win0div$ICField94'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='567'>
+<tr><td width='565'>
+<table role='presentation'  border='0' id='ACE_$ICField94' cellpadding='0' cellspacing='0' cols='3' width='565' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='552'></td>
+<td width='10'></td>
+</tr>
+<tr>
+<td height='38'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_CLSRCH_SSR_CLSRCH_CRIT'><div  style="width:552px; " >
+<!-- Begin HTML Area DERIVED_CLSRCH_SSR_CLSRCH_CRIT -->
+<table class="PSEDITBOX_DISPONLY"><tr><td>The following classes match your search criteria Course Subject: <strong>American Sign Language</strong>,&nbsp;&nbsp;Show Open Classes Only: <strong>Yes</strong></td></tr></table>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='16'></td>
+</tr>
+<tr>
+<td height='36' colspan='2'></td>
+<td colspan='13'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_DESCR1'><table cellpadding='2' cellspacing='0' cols='1'  class='PSGROUPBOXWBO'  width='803'>
+<tr><td class='PAGROUPBOXLABELINVISIBLE'  align='left'>Descr</td></tr>
+<tr><td width='799'>
+<table role='presentation'  border='0' id='ACE_DERIVED_REGFRM1_DESCR1' cellpadding='0' cellspacing='0' cols='3' width='799' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='450' height='0'></td>
+<td width='282'></td>
+<td width='67'></td>
+</tr>
+<tr>
+<td height='19'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_REGFRM1_SSR_WAIT_LIST_OFF'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='281'>
+<tr><td width='279'>
+<table role='presentation'  border='0' id='ACE_DERIVED_REGFRM1_SSR_WAIT_LIST_OFF' cellpadding='0' cellspacing='0' cols='9' width='279' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='39' height='0'></td>
+<td width='18'></td>
+<td width='2'></td>
+<td width='44'></td>
+<td width='48'></td>
+<td width='18'></td>
+<td width='2'></td>
+<td width='52'></td>
+<td width='56'></td>
+</tr>
+<tr>
+<td height='15'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField$14$'><img src=/cs/SS/cache/PS_CS_STATUS_OPEN_ICN_1.gif width='16' height='16' alt='Open' title='Open' class='PSSTATICIMAGE' />
+</DIV></td>
+<td></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField10'><span  class='PSTEXT' >Open</span>
+</DIV></td>
+<td></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField14'><img src=/cs/SS/cache/PS_CS_STATUS_CLOSED_ICN_1.gif width='16' height='16' alt='Closed' title='Closed' class='PSSTATICIMAGE' />
+</DIV></td>
+<td></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField11'><span  class='PSTEXT' >Closed</span>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='7' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='16'></td>
+</tr>
+<tr>
+<td height='42'></td>
+<td colspan='9'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_CLSRCH_GROUP5'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='583'>
+<tr><td width='581'>
+<table role='presentation'  border='0' id='ACE_DERIVED_CLSRCH_GROUP5' cellpadding='0' cellspacing='0' cols='5' width='581' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='232'></td>
+<td width='168'></td>
+<td width='168'></td>
+<td width='10'></td>
+</tr>
+<tr>
+<td height='6' colspan='2'></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0div$ICField$3$'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='167'>
+<tr><td width='165'>
+<table role='presentation'  border='0' id='ACE_$ICField$3$' cellpadding='0' cellspacing='0' cols='2' width='165' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='162'></td>
+</tr>
+<tr>
+<td height='23'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divCLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH' id='CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH' tabindex='386' value='New Search'  class='PSPUSHBUTTON' style='width:152px; ' onclick="submitAction_win0(document.win0,this.id,event);" title='Start a New Search'  /></span></a><!-- CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH --></DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0div$ICField$5$'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='167'>
+<tr><td width='165'>
+<table role='presentation'  border='0' id='ACE_$ICField$5$' cellpadding='0' cellspacing='0' cols='2' width='165' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='7' height='0'></td>
+<td width='158'></td>
+</tr>
+<tr>
+<td height='23'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divCLASS_SRCH_WRK2_SSR_PB_MODIFY'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='CLASS_SRCH_WRK2_SSR_PB_MODIFY' id='CLASS_SRCH_WRK2_SSR_PB_MODIFY' tabindex='387' value='Modify Search'  class='PSPUSHBUTTON' style='width:152px; ' onclick="submitAction_win0(document.win0,this.id,event);" /></span></a><!-- CLASS_SRCH_WRK2_SSR_PB_MODIFY --></DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='22'></td>
+<td rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divCLASS_SRCH_WRK2_SSR_PB_CLOSE'><span id='CLASS_SRCH_WRK2_SSR_PB_CLOSE$span'  class='PSHYPERLINK'  title='Return' ><a name='CLASS_SRCH_WRK2_SSR_PB_CLOSE' id='CLASS_SRCH_WRK2_SSR_PB_CLOSE'  ptlinktgt='pt_peoplecode' tabindex='385' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'CLASS_SRCH_WRK2_SSR_PB_CLOSE');"  class='PSHYPERLINK' >Return to Add Classes</a></span><!-- CLASS_SRCH_WRK2_SSR_PB_CLOSE --></DIV></td>
+</tr>
+<tr>
+<td height='9'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='211'></td>
+<td colspan='13'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_CLSRCH_GROUP6'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='777'>
+<tr><td width='775'>
+<table role='presentation'  border='0' id='ACE_DERIVED_CLSRCH_GROUP6' cellpadding='0' cellspacing='0' cols='3' width='775' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='762'></td>
+<td width='10'></td>
+</tr>
+<tr>
+<td height='197'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRSLT_WRK_GROUPBOX1'><table cellpadding='2' cellspacing='0' cols='1'  class='PSGROUPBOXWBO'  width='762'>
+<tr><td class='PSGROUPBOXLABEL'  align='left'>3 class section(s) found</td></tr>
+<tr><td width='758'>
+<table role='presentation'  border='0' id='ACE_SSR_CLSRSLT_WRK_GROUPBOX1' cellpadding='0' cellspacing='0' cols='3' width='758' class='PSGROUPBOX' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='759'></td>
+<td width='1'></td>
+</tr>
+<tr>
+<td height='179'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divCRSE_ID_VW2$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='CRSE_ID_VW2$scroll$0' onclick="getScrollTableId('CRSE_ID_VW2$scroll$0')" width='759'>
+<tr><td width='757'>
+<table role='presentation'  border='0' id='ACE_CRSE_ID_VW2$0' cellpadding='0' cellspacing='0' cols='3' width='757' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='756'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='180'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRSLT_WRK_GROUPBOX2$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='756'>
+<tr><td class='PAGROUPBOXLABELLEVEL1'  align='left'><DIV    id='win0divSSR_CLSRSLT_WRK_GROUPBOX2GP$0'><a class='PSHYPERLINK PTCOLLAPSE_ARROW' title='Collapse section ASL  101R - American Sign Language 1' name='SSR_CLSRSLT_WRK_GROUPBOX2$0' id='SSR_CLSRSLT_WRK_GROUPBOX2$0' tabindex='402' href="javascript:submitAction_win0(document.win0,'SSR_CLSRSLT_WRK_GROUPBOX2$0');" aria-expanded='true' role='button'><img src='/cs/SS/cache/PT_TRANS_PIX_1.png' class='PTCOLLAPSE' alt='ASL  101R - American Sign Language 1 Collapsible section' name='SSR_CLSRSLT_WRK_GROUPBOX2$img$0' border='0' /></a>&nbsp;ASL  101R - American Sign Language 1&nbsp;</DIV></td></tr>
+<tr><td width='754'>
+<table role='presentation'  border='0' id='ACE_SSR_CLSRSLT_WRK_GROUPBOX2$0' cellpadding='0' cellspacing='0' cols='3' width='754' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='753'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='165'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0div$ICField48$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  id='$ICField48$scroll$0' onclick="getScrollTableId('$ICField48$scroll$0')" width='753'>
+<tr><td width='751'>
+<table role='presentation'  border='0' id='ACE_$ICField48$0' cellpadding='0' cellspacing='0' cols='3' width='751' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='3'></td>
+<td width='750'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='51'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRSLT_WRK_GROUPBOX3$0'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='750'>
+<tr><td width='748'>
+<table role='presentation'  border='0' id='ACE_SSR_CLSRSLT_WRK_GROUPBOX3$0' cellpadding='0' cellspacing='0' cols='3' width='748' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='747'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='42'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRCH_MTG1$0'>
+<table cellspacing='0' class='PSLEVEL1GRIDNBONBO'  id='SSR_CLSRCH_MTG1$scroll$0' dir='ltr' cols='9' width='747' cellpadding='2'>
+<tr>
+<th scope='col' width='30' align='left' class='PSLEVEL1GRIDCOLUMNHDR PSGRIDFIRSTCOLUMN' ><a name='SSR_CLSRCH_MTG1$srt0$0' id='SSR_CLSRCH_MTG1$srt0$0'  tabindex='431' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt0$0');" title="Click to sort ascending">Class</a></th>
+<th scope='col' width='80' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt1$0' id='SSR_CLSRCH_MTG1$srt1$0'  tabindex='432' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt1$0');" title="Click to sort ascending">Section</a></th>
+<th scope='col' width='75' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt2$0' id='SSR_CLSRCH_MTG1$srt2$0'  tabindex='433' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt2$0');" title="Click to sort ascending">Campus</a></th>
+<th scope='col' width='98' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt3$0' id='SSR_CLSRCH_MTG1$srt3$0'  tabindex='434' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt3$0');" title="Click to sort ascending">Days &amp; Times</a></th>
+<th scope='col' width='91' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt4$0' id='SSR_CLSRCH_MTG1$srt4$0'  tabindex='435' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt4$0');" title="Click to sort ascending">Room</a></th>
+<th scope='col' width='98' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt5$0' id='SSR_CLSRCH_MTG1$srt5$0'  tabindex='436' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt5$0');" title="Click to sort ascending">Instructor</a></th>
+<th scope='col' width='94' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt6$0' id='SSR_CLSRCH_MTG1$srt6$0'  tabindex='437' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt6$0');" title="Click to sort ascending">Meeting Dates</a></th>
+<th scope='col' width='40' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt7$0' id='SSR_CLSRCH_MTG1$srt7$0'  tabindex='438' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt7$0');" title="Click to sort ascending">Status</a></th>
+<th scope='col' width='85' align='CENTER' class='PSLEVEL1GRIDCOLUMNHDR' >&nbsp;</th>
+</tr>
+<tr id='trSSR_CLSRCH_MTG1$0_row1' bufnum='0' valign='center' onClick="HighLightTR('rgb(238,238,238)','','trSSR_CLSRCH_MTG1$0_row1');" onMouseOver="hoverLightTR('rgb(253,255,200)','',0,'trSSR_CLSRCH_MTG1$0_row1');" onmouseout="hoverLightTR('rgb(253,255,200)','',1,'trSSR_CLSRCH_MTG1$0_row1');">
+<td align='left'  height='22' class='PSLEVEL3GRIDODDROW PSGRIDFIRSTCOLUMN' >
+<DIV    id='win0divMTG_CLASS_NBR$0'><span id='MTG_CLASS_NBR$span$0'  class='PSHYPERLINK'  title='Class Nbr' ><a name='MTG_CLASS_NBR$0' id='MTG_CLASS_NBR$0'  ptlinktgt='pt_peoplecode' tabindex='445' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'MTG_CLASS_NBR$0');"  class='PSHYPERLINK' >6829</a></span><!-- MTG_CLASS_NBR$0 --></DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_CLASSNAME$0'><span id='MTG_CLASSNAME$span$0'  class='PSHYPERLINK'  title='View Details' ><a name='MTG_CLASSNAME$0' id='MTG_CLASSNAME$0'  ptlinktgt='pt_peoplecode' tabindex='446' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'MTG_CLASSNAME$0');"  class='PSHYPERLINK' >001-LEC<br />Regular</a></span><!-- MTG_CLASSNAME$0 --></DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divUW_DERIVED_CLSR_CAMPUS$0'><span  class='PSEDITBOX_DISPONLY' id='UW_DERIVED_CLSR_CAMPUS$0' >REN</span><!-- UW_DERIVED_CLSR_CAMPUS$0 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_DAYTIME$0'><span  class='PSLONGEDITBOX' id='MTG_DAYTIME$0' >Th 8:30AM - 11:20AM</span><!-- MTG_DAYTIME$0 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_ROOM$0'><span  class='PSLONGEDITBOX' id='MTG_ROOM$0' >REN 3106A</span><!-- MTG_ROOM$0 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_INSTR$0'><span  class='PSLONGEDITBOX' id='MTG_INSTR$0' >Georgia Whalen</span><!-- MTG_INSTR$0 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_TOPIC$0'><span  class='PSLONGEDITBOX' id='MTG_TOPIC$0' >01/06/2025 - 04/04/2025</span><!-- MTG_TOPIC$0 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divDERIVED_CLSRCH_SSR_STATUS_LONG$0'><div  style="min-width:40px; " >
+<!-- Begin HTML Area DERIVED_CLSRCH_SSR_STATUS_LONG$0 -->
+<img src="/cs/SS/cache/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" STYLE="vertical-align:middle;text-align:center;margin-left:12px">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='center'  style='white-space:nowrap;' class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divSSR_PB_SELECT$0'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='SSR_PB_SELECT$0' id='SSR_PB_SELECT$0' tabindex='452' value='Select'  class='PSPUSHBUTTON' style='width:85px; ' onclick="submitAction_win0(document.win0,this.id,event);" title='Select Class'  /></span></a><!-- SSR_PB_SELECT$0 --></DIV></td>
+</tr>
+</table>
+</DIV>
+</td>
+</tr>
+<tr>
+<td height='3' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+</tr>
+<tr>
+<td height='51'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRSLT_WRK_GROUPBOX3$1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='750'>
+<tr><td width='748'>
+<table role='presentation'  border='0' id='ACE_SSR_CLSRSLT_WRK_GROUPBOX3$1' cellpadding='0' cellspacing='0' cols='3' width='748' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='747'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='42'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRCH_MTG1$1'>
+<table cellspacing='0' class='PSLEVEL1GRIDNBONBO'  id='SSR_CLSRCH_MTG1$scroll$1' dir='ltr' cols='9' width='747' cellpadding='2'>
+<tr>
+<th scope='col' width='30' align='left' class='PSLEVEL1GRIDCOLUMNHDR PSGRIDFIRSTCOLUMN' ><a name='SSR_CLSRCH_MTG1$srt0$1' id='SSR_CLSRCH_MTG1$srt0$1'  tabindex='613' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt0$1');" title="Click to sort ascending">Class</a></th>
+<th scope='col' width='80' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt1$1' id='SSR_CLSRCH_MTG1$srt1$1'  tabindex='614' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt1$1');" title="Click to sort ascending">Section</a></th>
+<th scope='col' width='75' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt2$1' id='SSR_CLSRCH_MTG1$srt2$1'  tabindex='615' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt2$1');" title="Click to sort ascending">Campus</a></th>
+<th scope='col' width='98' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt3$1' id='SSR_CLSRCH_MTG1$srt3$1'  tabindex='616' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt3$1');" title="Click to sort ascending">Days &amp; Times</a></th>
+<th scope='col' width='91' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt4$1' id='SSR_CLSRCH_MTG1$srt4$1'  tabindex='617' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt4$1');" title="Click to sort ascending">Room</a></th>
+<th scope='col' width='98' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt5$1' id='SSR_CLSRCH_MTG1$srt5$1'  tabindex='618' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt5$1');" title="Click to sort ascending">Instructor</a></th>
+<th scope='col' width='94' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt6$1' id='SSR_CLSRCH_MTG1$srt6$1'  tabindex='619' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt6$1');" title="Click to sort ascending">Meeting Dates</a></th>
+<th scope='col' width='40' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt7$1' id='SSR_CLSRCH_MTG1$srt7$1'  tabindex='620' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt7$1');" title="Click to sort ascending">Status</a></th>
+<th scope='col' width='85' align='CENTER' class='PSLEVEL1GRIDCOLUMNHDR' >&nbsp;</th>
+</tr>
+<tr id='trSSR_CLSRCH_MTG1$1_row1' bufnum='0' valign='center' onClick="HighLightTR('rgb(238,238,238)','','trSSR_CLSRCH_MTG1$1_row1');" onMouseOver="hoverLightTR('rgb(253,255,200)','',0,'trSSR_CLSRCH_MTG1$1_row1');" onmouseout="hoverLightTR('rgb(253,255,200)','',1,'trSSR_CLSRCH_MTG1$1_row1');">
+<td align='left'  height='22' class='PSLEVEL3GRIDODDROW PSGRIDFIRSTCOLUMN' >
+<DIV    id='win0divMTG_CLASS_NBR$1'><span id='MTG_CLASS_NBR$span$1'  class='PSHYPERLINK'  title='Class Nbr' ><a name='MTG_CLASS_NBR$1' id='MTG_CLASS_NBR$1'  ptlinktgt='pt_peoplecode' tabindex='627' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'MTG_CLASS_NBR$1');"  class='PSHYPERLINK' >6834</a></span><!-- MTG_CLASS_NBR$1 --></DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_CLASSNAME$1'><span id='MTG_CLASSNAME$span$1'  class='PSHYPERLINK'  title='View Details' ><a name='MTG_CLASSNAME$1' id='MTG_CLASSNAME$1'  ptlinktgt='pt_peoplecode' tabindex='628' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'MTG_CLASSNAME$1');"  class='PSHYPERLINK' >002-LEC<br />Regular</a></span><!-- MTG_CLASSNAME$1 --></DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divUW_DERIVED_CLSR_CAMPUS$1'><span  class='PSEDITBOX_DISPONLY' id='UW_DERIVED_CLSR_CAMPUS$1' >REN</span><!-- UW_DERIVED_CLSR_CAMPUS$1 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_DAYTIME$1'><span  class='PSLONGEDITBOX' id='MTG_DAYTIME$1' >Th 2:30PM - 5:20PM</span><!-- MTG_DAYTIME$1 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_ROOM$1'><span  class='PSLONGEDITBOX' id='MTG_ROOM$1' >REN 3106A</span><!-- MTG_ROOM$1 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_INSTR$1'><span  class='PSLONGEDITBOX' id='MTG_INSTR$1' >Georgia Whalen</span><!-- MTG_INSTR$1 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_TOPIC$1'><span  class='PSLONGEDITBOX' id='MTG_TOPIC$1' >01/06/2025 - 04/04/2025</span><!-- MTG_TOPIC$1 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divDERIVED_CLSRCH_SSR_STATUS_LONG$1'><div  style="min-width:40px; " >
+<!-- Begin HTML Area DERIVED_CLSRCH_SSR_STATUS_LONG$1 -->
+<img src="/cs/SS/cache/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" STYLE="vertical-align:middle;text-align:center;margin-left:12px">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='center'  style='white-space:nowrap;' class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divSSR_PB_SELECT$1'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='SSR_PB_SELECT$1' id='SSR_PB_SELECT$1' tabindex='634' value='Select'  class='PSPUSHBUTTON' style='width:85px; ' onclick="submitAction_win0(document.win0,this.id,event);" title='Select Class'  /></span></a><!-- SSR_PB_SELECT$1 --></DIV></td>
+</tr>
+</table>
+</DIV>
+</td>
+</tr>
+<tr>
+<td height='3' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='3'></td>
+</tr>
+<tr>
+<td height='50'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRSLT_WRK_GROUPBOX3$2'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='750'>
+<tr><td width='748'>
+<table role='presentation'  border='0' id='ACE_SSR_CLSRSLT_WRK_GROUPBOX3$2' cellpadding='0' cellspacing='0' cols='3' width='748' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='0' height='0'></td>
+<td width='747'></td>
+<td width='2'></td>
+</tr>
+<tr>
+<td height='42'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divSSR_CLSRCH_MTG1$2'>
+<table cellspacing='0' class='PSLEVEL1GRIDNBONBO'  id='SSR_CLSRCH_MTG1$scroll$2' dir='ltr' cols='9' width='747' cellpadding='2'>
+<tr>
+<th scope='col' width='30' align='left' class='PSLEVEL1GRIDCOLUMNHDR PSGRIDFIRSTCOLUMN' ><a name='SSR_CLSRCH_MTG1$srt0$2' id='SSR_CLSRCH_MTG1$srt0$2'  tabindex='795' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt0$2');" title="Click to sort ascending">Class</a></th>
+<th scope='col' width='80' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt1$2' id='SSR_CLSRCH_MTG1$srt1$2'  tabindex='796' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt1$2');" title="Click to sort ascending">Section</a></th>
+<th scope='col' width='75' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt2$2' id='SSR_CLSRCH_MTG1$srt2$2'  tabindex='797' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt2$2');" title="Click to sort ascending">Campus</a></th>
+<th scope='col' width='98' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt3$2' id='SSR_CLSRCH_MTG1$srt3$2'  tabindex='798' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt3$2');" title="Click to sort ascending">Days &amp; Times</a></th>
+<th scope='col' width='91' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt4$2' id='SSR_CLSRCH_MTG1$srt4$2'  tabindex='799' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt4$2');" title="Click to sort ascending">Room</a></th>
+<th scope='col' width='98' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt5$2' id='SSR_CLSRCH_MTG1$srt5$2'  tabindex='800' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt5$2');" title="Click to sort ascending">Instructor</a></th>
+<th scope='col' width='94' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt6$2' id='SSR_CLSRCH_MTG1$srt6$2'  tabindex='801' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt6$2');" title="Click to sort ascending">Meeting Dates</a></th>
+<th scope='col' width='40' align='left' class='PSLEVEL1GRIDCOLUMNHDR' ><a name='SSR_CLSRCH_MTG1$srt7$2' id='SSR_CLSRCH_MTG1$srt7$2'  tabindex='802' class='PSLEVEL1GRIDCOLUMNHDR' href="javascript:submitAction_win0(document.win0,'SSR_CLSRCH_MTG1$srt7$2');" title="Click to sort ascending">Status</a></th>
+<th scope='col' width='85' align='CENTER' class='PSLEVEL1GRIDCOLUMNHDR' >&nbsp;</th>
+</tr>
+<tr id='trSSR_CLSRCH_MTG1$2_row1' bufnum='0' valign='center' onClick="HighLightTR('rgb(238,238,238)','','trSSR_CLSRCH_MTG1$2_row1');" onMouseOver="hoverLightTR('rgb(253,255,200)','',0,'trSSR_CLSRCH_MTG1$2_row1');" onmouseout="hoverLightTR('rgb(253,255,200)','',1,'trSSR_CLSRCH_MTG1$2_row1');">
+<td align='left'  height='22' class='PSLEVEL3GRIDODDROW PSGRIDFIRSTCOLUMN' >
+<DIV    id='win0divMTG_CLASS_NBR$2'><span id='MTG_CLASS_NBR$span$2'  class='PSHYPERLINK'  title='Class Nbr' ><a name='MTG_CLASS_NBR$2' id='MTG_CLASS_NBR$2'  ptlinktgt='pt_peoplecode' tabindex='809' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'MTG_CLASS_NBR$2');"  class='PSHYPERLINK' >8821</a></span><!-- MTG_CLASS_NBR$2 --></DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_CLASSNAME$2'><span id='MTG_CLASSNAME$span$2'  class='PSHYPERLINK'  title='View Details' ><a name='MTG_CLASSNAME$2' id='MTG_CLASSNAME$2'  ptlinktgt='pt_peoplecode' tabindex='810' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'MTG_CLASSNAME$2');"  class='PSHYPERLINK' >003-LEC<br />Regular</a></span><!-- MTG_CLASSNAME$2 --></DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divUW_DERIVED_CLSR_CAMPUS$2'><span  class='PSEDITBOX_DISPONLY' id='UW_DERIVED_CLSR_CAMPUS$2' >&nbsp;</span><!-- UW_DERIVED_CLSR_CAMPUS$2 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_DAYTIME$2'><span  class='PSLONGEDITBOX' id='MTG_DAYTIME$2' >Mo 2:30PM - 5:20PM</span><!-- MTG_DAYTIME$2 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_ROOM$2'><span  class='PSLONGEDITBOX' id='MTG_ROOM$2' >REN 3106A</span><!-- MTG_ROOM$2 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_INSTR$2'><span  class='PSLONGEDITBOX' id='MTG_INSTR$2' >Erika Stebbings</span><!-- MTG_INSTR$2 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divMTG_TOPIC$2'><span  class='PSLONGEDITBOX' id='MTG_TOPIC$2' >01/06/2025 - 04/04/2025</span><!-- MTG_TOPIC$2 -->
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='left'  class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divDERIVED_CLSRCH_SSR_STATUS_LONG$2'><div  style="min-width:40px; " >
+<!-- Begin HTML Area DERIVED_CLSRCH_SSR_STATUS_LONG$2 -->
+<img src="/cs/SS/cache/PS_CS_STATUS_OPEN_ICN_1.gif" width="16" height="16" alt="Open" STYLE="vertical-align:middle;text-align:center;margin-left:12px">
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+<td class='PSLEVEL3GRIDODDROW'  align='center'  style='white-space:nowrap;' class='PSLEVEL3GRIDODDROW' >
+<DIV    id='win0divSSR_PB_SELECT$2'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='SSR_PB_SELECT$2' id='SSR_PB_SELECT$2' tabindex='816' value='Select'  class='PSPUSHBUTTON' style='width:85px; ' onclick="submitAction_win0(document.win0,this.id,event);" title='Select Class'  /></span></a><!-- SSR_PB_SELECT$2 --></DIV></td>
+</tr>
+</table>
+</DIV>
+</td>
+</tr>
+<tr>
+<td height='3' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='3' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='9' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='8' colspan='16'></td>
+</tr>
+<tr>
+<td height='6' colspan='6'></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0div$ICField$4$'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='167'>
+<tr><td width='165'>
+<table role='presentation'  border='0' id='ACE_$ICField$4$' cellpadding='0' cellspacing='0' cols='2' width='165' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='162'></td>
+</tr>
+<tr>
+<td height='23'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divCLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH$3$'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH$3$' id='CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH$3$' tabindex='992' value='New Search'  class='PSPUSHBUTTON' style='width:152px; ' onclick="submitAction_win0(document.win0,this.id,event);" title='Start a New Search'  /></span></a><!-- CLASS_SRCH_WRK2_SSR_PB_NEW_SEARCH$3$ --></DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+<td rowspan='2'  valign='top' align='left'>
+<DIV    id='win0div$ICField$6$'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='167'>
+<tr><td width='165'>
+<table role='presentation'  border='0' id='ACE_$ICField$6$' cellpadding='0' cellspacing='0' cols='2' width='165' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='7' height='0'></td>
+<td width='158'></td>
+</tr>
+<tr>
+<td height='23'></td>
+<td nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divCLASS_SRCH_WRK2_SSR_PB_MODIFY$5$'><a role='presentation' class='PSPUSHBUTTON Left' ><span style='background-Color: transparent;'><input type='button' name='CLASS_SRCH_WRK2_SSR_PB_MODIFY$5$' id='CLASS_SRCH_WRK2_SSR_PB_MODIFY$5$' tabindex='993' value='Modify Search'  class='PSPUSHBUTTON' style='width:152px; ' onclick="submitAction_win0(document.win0,this.id,event);" /></span></a><!-- CLASS_SRCH_WRK2_SSR_PB_MODIFY$5$ --></DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='22' colspan='2'></td>
+<td colspan='4' rowspan='2' nowrap='nowrap'  valign='top' align='left'>
+<DIV    id='win0divCLASS_SRCH_WRK2_SSR_PB_CLOSE$1$'><span id='CLASS_SRCH_WRK2_SSR_PB_CLOSE$1$$span'  class='PSHYPERLINK'  title='Return' ><a name='CLASS_SRCH_WRK2_SSR_PB_CLOSE$1$' id='CLASS_SRCH_WRK2_SSR_PB_CLOSE$1$'  ptlinktgt='pt_peoplecode' tabindex='991' onclick='javascript:cancelBubble(event);' href="javascript:submitAction_win0(document.win0,'CLASS_SRCH_WRK2_SSR_PB_CLOSE$1$');"  class='PSHYPERLINK' >Return to Add Classes</a></span><!-- CLASS_SRCH_WRK2_SSR_PB_CLOSE$1$ --></DIV></td>
+</tr>
+<tr>
+<td height='10' colspan='2'></td>
+</tr>
+<tr>
+<td height='122' colspan='2'></td>
+<td colspan='10'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_CLSRCH_SSR_GROUP_FTR1'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='671'>
+<tr><td width='669'>
+<table role='presentation'  border='0' id='ACE_DERIVED_CLSRCH_SSR_GROUP_FTR1' cellpadding='0' cellspacing='0' cols='3' width='669' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='3' height='0'></td>
+<td width='652'></td>
+<td width='14'></td>
+</tr>
+<tr>
+<td height='100'></td>
+<td  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_GROUP_BOX$19$'><table cellpadding='2' cellspacing='0' cols='1'  class='PABACKGROUNDINVISIBLEWBO'  width='651'>
+<tr><td width='649'>
+<table role='presentation'  border='0' id='ACE_DERIVED_SSTSNAV_GROUP_BOX$19$' cellpadding='0' cellspacing='0' cols='5' width='649' class='PABACKGROUNDINVISIBLE' style='border-style:none' >
+<tr>
+<td width='5' height='0'></td>
+<td width='2'></td>
+<td width='618'></td>
+<td width='2'></td>
+<td width='22'></td>
+</tr>
+<tr>
+<td height='13'></td>
+<td colspan='2'  valign='top' align='left'>
+<hr width='100%' align='left'  class='PSHORIZONTALRULE'  />
+</td>
+</tr>
+<tr>
+<td height='82' colspan='2'></td>
+<td colspan='2'  valign='top' align='left'>
+<DIV    id='win0divDERIVED_SSTSNAV_SSS_FOOTER_LINKS'><div  style="width:620px; " >
+<!-- Begin HTML Area DERIVED_SSTSNAV_SSS_FOOTER_LINKS -->
+<img src="/cs/SS/cache/PS_SCROLL_TOP_VER_ICN_1.gif" alt="Go to top icon" style="margin-top:7px;" border="0"/><a href="#" class="PSHYPERLINK" style="white-space:nowrap;" tabindex=994><span>Go to top</span></a>
+<!-- End HTML Area -->
+</div>
+</DIV></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='9' colspan='3'></td>
+</tr>
+</table>
+</td></tr>
+</table>
+</DIV></td>
+</tr>
+<tr>
+<td height='4' colspan='16'></td>
+</tr>
+</table>
+</DIV>
+</td></tr>
+<tr><td class='PSHEADERTOOLBARFRAME' >
+<DIV class='' id='win0divPSTOOLBAR'></DIV>
+</td></tr>
+</table>
+<div id='pt_dragtxt' class='PSLEVEL1GRIDCOLUMNHDR'></div><div onmouseup='ptGridResizeObj_win0.TDselUp();' onmousemove='ptGridResizeObj_win0.TDselMove();' id='pt_dragResize' onmouseout='ptGridResizeObj_win0.dragTD=false;' onmbouseover='ptGridResizeObj_win0.dragTD=true;'></div>]]></FIELD>
+<FIELD id='win0divPSPANELTABLINKS'><![CDATA[]]></FIELD>
+<SYSVAR id='sysvar'><![CDATA[nMaxSavedStates=5;
+sHistURL="https://quest.pecs.uwaterloo.ca/psc/SS/ACADEMIC/SA/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?page=SSR_CLSRCH_RSLT&";
+bCloseModal = true;
+bICList = false;
+bHtml5Doc = true;
+bClearBackState=false;
+bPageTransfered=true;
+bTransferAnimate=false;
+bCleanHtml = false;
+bDefer = true;
+document.hiddenFldArr_win0 =new Array('ICType','ICElementNum','ICStateNum','ICAction','ICModelCancel','ICXPos','ICYPos','ResponsetoDiffFrame','TargetFrameName','FacetPath','PrmtTbl','PrmtTbl_fn','PrmtTbl_fv','TA_SkipFldNms','ICFocus','ICSaveWarningFilter','ICChanged','ICSkipPending','ICAutoSave','ICResubmit','ICSID','ICAGTarget','ICActionPrompt','ICTypeAheadID','ICBcDomData','ICPanelHelpUrl','ICPanelName','ICFind','ICAddCount','ICAppClsData');
+document.chgFldArr_win0 = new Array();
+bCDATA = false;
+bAccessibleLayout = false;
+bGenDomInfo = false;
+]]></SYSVAR></PAGE>
