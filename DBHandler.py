@@ -24,7 +24,8 @@ class DBHandler:
     # functions to write to database
     # functions to update database entry
     def update_room(self, building, room_number, quantity):
-        query = f'UPDATE rooms SET PeopleCount = {quantity} WHERE RoomID = {building}{room_number}'
+        query = f'UPDATE rooms SET PeopleCount = {quantity} WHERE RoomID = \'{building}{str(room_number)}\''
+        print(f'Attempting to execute query: {query}')
         try:
             self.cursor.execute(query)
             self.db.commit()

@@ -13,7 +13,8 @@ def main(room, building):
 
     cv2.startWindowThread()
 
-    cap = cv2.VideoCapture(url)
+    # cap = cv2.VideoCapture(url)
+    cap = cv2.VideoCapture(0)
     count = 0
     while(True):
         # Capture frame-by-frame
@@ -35,9 +36,10 @@ def main(room, building):
             cv2.rectangle(frame, (xA, yA), (xB, yB),
                             (0, 255, 0), 2)
         
-        if count % 1000 == 0:
+        if count % 100 == 0:
+            print(f'attempting to update room count with: {len(boxes)}')
             db.update_room(building, room, len(boxes))
-
+        # print(f'Count: {count}, {len(boxes)} People detected')
         cv2.imshow('frame',frame)
         count += 1
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -50,11 +52,13 @@ def main(room, building):
     cv2.destroyAllWindows()
     cv2.waitKey(1)
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='tracking')
-    parser.add_argument('--room', metavar='id', required=True,
-                        help='the room id')
-    parser.add_argument('--building', metavar='id', required=True,
-                        help='the building code')
-    args = parser.parse_args()
-    main(room=args.room, building=args.building)
+# if __name__ == '__main__':
+#     parser = argparse.ArgumentParser(description='tracking')
+#     parser.add_argument('--room', metavar='id', required=True,
+#                         help='the room id')
+#     parser.add_argument('--building', metavar='id', required=True,
+#                         help='the building code')
+#     args = parser.parse_args()
+#     main(room=args.room, building=args.building)
+
+main(room='110', building='RCH')
