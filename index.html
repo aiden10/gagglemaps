@@ -357,5 +357,163 @@
 
     
   </script>
+    <style>
+      .dot {
+           position: absolute; 
+           height: 25px;
+           width: 25px;
+           transform: translate(-50%, -50%);
+           background: radial-gradient(#de1111db, #e1a3a3e7);
+           border-radius: 50%; 
+           cursor: pointer; 
+           transition: transform 0.2s ease; 
+      }
+     
+       </style>
+     
+     
+     <script>
+     
+     var all_rooms = ["AL", "B1", "B2", "DC", "DWE", "E2", "EIT", "EV1", "EV2", "EV3",
+         "LHI", "HH", "M3", "MC", "ML", "PAS", "PHY", "QNC", "RCH", "STC", "UTD"];
+     
+     
+     async function getData(building) {
+         const url = `http://localhost:8000/buildings/${building}`;
+         try {
+             const response = await fetch(url);
+             if (!response.ok) {
+             throw new Error(`Response status: ${response.status}`);
+             }
+             const res = await response.json();
+             return res;
+         } catch (error) {
+             console.error(error.message);
+             return null;
+         }
+     }
+     
+     function makecircle(dim, name){
+         var div = document.createElement("div");
+         div.className = "dot";
+         div.style.width = (dim.toString() + "px");
+         div.style.height = (dim.toString() + "px");
+     if (name == "MC") {
+         div.style.left = "53.9%";
+         div.style.top = "31.1%";
+     }
+     
+     if (name == "QNC") {
+         div.style.left = "50.95%";
+         div.style.top = "39.7%";
+     }
+     
+     if (name == "B2") {
+         div.style.left = "51.4%";
+         div.style.top = "44.2%";
+     }
+     
+     if (name == "STC") {
+         div.style.left = "51.37%";
+         div.style.top = "48.2%";
+     }
+     
+     if (name == "B1") {
+         div.style.left = "53.9%";
+         div.style.top = "49.48%";
+     }
+     
+     if (name == "DC") {
+         div.style.left = "61%";
+         div.style.top = "31.3%";
+     }
+     
+     if (name == "EIT") {
+         div.style.left = "59.2%";
+         div.style.top = "44.1%";
+     }
+     
+     if (name == "LHI") {
+         div.style.left = "49.75%";
+         div.style.top = "10.6%";
+     }
+     
+     if (name == "M3") {
+         div.style.left = "55.36%";
+         div.style.top = "20.1%";
+     }
+     
+     if (name == "PHY") {
+         div.style.left = "58.55%";
+         div.style.top = "53.1%";
+     }
+     
+     if (name == "AL") {
+         div.style.left = "53.65%";
+         div.style.top = "73%";
+     }
+     
+     if (name == "DWE") {
+         div.style.left = "62.46%";
+         div.style.top = "65.68%";
+     }
+     
+     if (name == "E2") {
+         div.style.left = "63.9%";
+         div.style.top = "58%";
+     }
+     
+     if (name == "EV1") {
+         div.style.left = "50.15%";
+         div.style.top = "74.8%";
+     }
+     
+     if (name == "EV2") {
+         div.style.left = "48.05%";
+         div.style.top = "75.15%";
+     }
+     
+     if (name == "EV3") {
+         div.style.left = "46.6%";
+         div.style.top = "71.35%";
+     }
+     
+     if (name == "HH") {
+         div.style.left = "51.85%";
+         div.style.top = "82.4%";
+     }
+     
+     if (name == "ML") {
+         div.style.left = "51.18%";
+         div.style.top = "63.7%";
+     }
+     
+     if (name == "PAS") {
+         div.style.left = "47.15%";
+         div.style.top = "88.3%";
+     }
+     
+     if (name == "RCH") {
+         div.style.left = "60.75%";
+         div.style.top = "60.5%";
+     }
+     
+     if (name == "UC") {
+         div.style.left = "34.2%";
+         div.style.top = "68.8%";
+     }
+         document.body.appendChild(div);
+     }
+     
+     window.onload = async function (){
+         for (let i = 0; i < all_rooms.length; i += 1){
+             const data = await getData(all_rooms[i]);
+             people = data.results.PeopleCount;
+             console.log(data);
+             makecircle(parseInt(people) / 4, all_rooms[i]);
+         }
+     }
+     
+     </script>     
 </body>
 </html>
