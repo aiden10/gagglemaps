@@ -4,7 +4,8 @@ import cv2
 import argparse
 from DBHandler import DBHandler
 
-def main(room, building):
+def main(room, building, image_container):
+    room_id = building + room
     url = 'http://192.168.111.63:8080/video'
 
     db = DBHandler()
@@ -20,35 +21,33 @@ def main(room, building):
         # Capture frame-by-frame
         ret, frame = cap.read()
 
-        # resizing for faster detection
         frame = cv2.resize(frame, (640, 480))
-        # using a greyscale picture, also for faster detection
+        frame_without_border = frame
         gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
 
         # detect people in the image
-        # returns the bounding boxes for the detected objects
         boxes, weights = hog.detectMultiScale(frame, winStride=(8,8) )
 
         boxes = np.array([[x, y, x + w, y + h] for (x, y, w, h) in boxes])
 
         for (xA, yA, xB, yB) in boxes:
-            # display the detected boxes in the colour picture
             cv2.rectangle(frame, (xA, yA), (xB, yB),
                             (0, 255, 0), 2)
         
         if count % 100 == 0:
-            print(f'attempting to update room count with: {len(boxes)}')
             db.update_room(building, room, len(boxes))
+            if room_id in image_container.image:
+                image_container.image[room_id] = frame_without_border
+            else:
+                image_container.image.update({room_id: frame_without_border})
         # print(f'Count: {count}, {len(boxes)} People detected')
         cv2.imshow('frame',frame)
         count += 1
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-    # When everything done, release the capture
     cap.release()
 
-    # finally, close the window
     cv2.destroyAllWindows()
     cv2.waitKey(1)
 
@@ -60,5 +59,3 @@ def main(room, building):
 #                         help='the building code')
 #     args = parser.parse_args()
 #     main(room=args.room, building=args.building)
-
-main(room='110', building='RCH')
