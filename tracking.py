@@ -7,33 +7,27 @@ import sounddevice as sd
 import threading
 import speech_recognition as sr 
 
-
-
-def main(room, building, image_container):
+def main(room, building, container):
     room_id = building + room
     url = 'http://192.168.111.63:8080/video'
 
     db = DBHandler()
 
     r = sr.Recognizer()
-    def transcribe_audio(aud):
-        # use the audio file as the audio source
-        audio_listened = r.record(aud)
-        # try converting it to text
-        text = r.recognize_google(audio_listened)
-        return text
-
-    fs = 44100  # Sample rate
-    seconds = 10  # Duration of recording
 
     def record_audio():
-        print("Starting audio recording...")
-        audio_recording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
-        sd.wait()
-        subtitles = transcribe_audio(audio_recording)
-        print("Audio recording finished")
-        print(subtitles)
-
+        while True:
+            with sr.Microphone() as source:
+                text = ''
+                try:
+                    audio_listened = r.listen(source, phrase_time_limit=10)
+                    text = r.recognize_google(audio_listened)
+                except Exception as e:
+                    print('No words detected')
+                if room_id in container.audio and text != '':
+                    container.audio[room_id] = text
+                else:
+                    container.audio.update({room_id: text})
 
     def record_video():
 
@@ -64,10 +58,10 @@ def main(room, building, image_container):
             
             if count % 100 == 0:
                 db.update_room(building, room, len(boxes))
-                if room_id in image_container.image:
-                    image_container.image[room_id] = frame_without_border
+                if room_id in container.image:
+                    container.image[room_id] = frame_without_border
                 else:
-                    image_container.image.update({room_id: frame_without_border})
+                    container.image.update({room_id: frame_without_border})
             # print(f'Count: {count}, {len(boxes)} People detected')
             cv2.imshow('frame',frame)
             count += 1
