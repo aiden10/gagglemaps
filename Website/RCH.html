@@ -92,7 +92,16 @@
             margin-bottom: 10px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }    
+        .back-arrow {
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+        }
 
+        .back-arrow:hover {
+            color: #666;
+        }
+        
     </style>
     <script>
         function toggleFloor(header) {
@@ -189,9 +198,9 @@
             const f1Container = document.getElementById('f1');
             const f2Container = document.getElementById('f2');
             const f3Container = document.getElementById('f3');
-            f1Container.innerHTML = '';
-            f2Container.innerHTML = '';
-            f3Container.innerHTML = '';
+            f1Container.innerHTML = '<p>Loading...</p>';
+            f2Container.innerHTML = '<p>Loading...</p>';
+            f3Container.innerHTML = '<p>Loading...</p>';
             roomIdsSection1.forEach(roomId => {
                 fetchRoom(roomId, 'f1');
             });
@@ -202,7 +211,7 @@
                 fetchRoom(roomId, 'f3');
             });
         }
-        
+
         var prevSocketData = {};
         window.onload = function () {
             const socket = new WebSocket("ws://localhost:8000/ws/", "protocolOne");
@@ -233,6 +242,9 @@
 </head>
 <body>
     <div class="container mt-5">
+        <svg onclick="window.location.href='../index.html'" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-arrow">
+            <path d="M15 18l-6-6 6-6"/>
+        </svg>
         <h1 class="text-center mb-4">RCH ROOMS</h1>
         <div class="floor-container">
             <div class="floor-header" onclick="toggleFloor(this)">Floor 1</div>
