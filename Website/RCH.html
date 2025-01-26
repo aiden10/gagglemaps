@@ -31,25 +31,32 @@
         }
 
         .floor-content {
-            display: none;
+            display: flex;
             padding: 15px;
             background-color: #fff;
             text-align: center;
         }
 
         .floor-content img {
-            max-width: 40%;
+            max-width: 50%;
             height: auto;
             border-radius: 8px;
+            flex: 1;
         }
+
+        .chart {
+            flex: 1;
+            text-align: center;
+        }
+
     </style>
     <script>
         function toggleFloor(header) {
             const content = header.nextElementSibling;
-            const isVisible = content.style.display === "block";
+            const isVisible = content.style.display === "flex";
 
             document.querySelectorAll(".floor-content").forEach(el => el.style.display = "none");
-            content.style.display = isVisible ? "none" : "block";
+            content.style.display = isVisible ? "none" : "flex";
         }
     </script>
 
@@ -63,6 +70,9 @@
             <div class="floor-header" onclick="toggleFloor(this)">Floor 1</div>
             <div class="floor-content">
                 <img src="floorplans/RCH-1.png" alt="Floor 1">
+                <div class="chart">
+                    <div id="f1" class="room-list"><p>Loading...</p></div>
+                </div>
             </div>
         </div>
 
@@ -70,6 +80,9 @@
             <div class="floor-header" onclick="toggleFloor(this)">Floor 2</div>
             <div class="floor-content">
                 <img src="floorplans/RCH-2.png" alt="Floor 2">
+                <div class="chart">
+                    <div id="f2" class="room-list"><p>Loading...</p></div>
+                </div>
             </div>
         </div>
 
@@ -77,8 +90,57 @@
             <div class="floor-header" onclick="toggleFloor(this)">Floor 3</div>
             <div class="floor-content">
                 <img src="floorplans/RCH-3.png" alt="Floor 3">
+                <div class="chart">
+                    <div id="f3" class="room-list"><p>Loading...</p></div>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+
+        async function fetchRoom(roomId, sectionId) {
+          try {
+            const response = await fetch(`http://localhost:8000/data/room/${roomID}`);
+            if (response.ok) {
+              const data = await response.json();
+              displayRoom(data.room, sectionId);
+            } else {
+              throw new Error(`Failed to fetch room: ${roomId}`);
+            }
+          } catch (error) {
+            console.error(error);
+            document.getElementById(`${sectionId}`).innerHTML = 'Failed to load rooms.'; 
+          }
+        }
+  
+        function displayRoom(room, sectionId) {
+          const roomListContainer = document.getElementById(`room-list-${sectionId}`);
+          if (room) {
+            const roomHTML = `
+              <div class="room">
+                <p>${room.RoomID}: ${room.PeopleCount}</p>
+              </div>
+            `;
+            roomListContainer.innerHTML += roomHTML;
+          }
+        }
+  
+        window.onload = function() {
+  
+              // Room IDs for Section 1
+              const roomIdsSection1 = ['RCH-101', 'RCH-103', 'RCH-105', 'RCH-106', 'RCH-109', 'RCH-110', 'RCH-112'];
+              roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
+  
+              // Room IDs for Section 2
+              const roomIdsSection2 = ['RCH-204', 'RCH-205', 'RCH-207', 'RCH-208', 'RCH-209', 'RCH-211', 'RCH-212'];
+              roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
+  
+              // Room IDs for Section 3
+              const roomIdsSection3 = ['RCH-301', 'RCH-302','RCH-305', 'RCH-306', 'RCH-307', 'RCH-308','RCH-309'];
+              roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
+          }
+      </script>
+      
 </body>
 </html>
