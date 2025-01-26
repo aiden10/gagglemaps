@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Waterloo Interactive Map</title>
+  <style>
+    .switch {
+      position: fixed; /* Fixed position for top-right placement */
+      top: 10px;
+      right: 10px;
+      z-index: 1000; /* Ensures it stays on top of other elements */
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 25px;
+    }
+
+    .slider::before {
+      position: absolute;
+      content: "";
+      height: 19px;
+      width: 19px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #4CAF50;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(25px);
+    }
+
+    .dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 14000px;
+      aspect-ratio: 1542 / 840; /* Keeps the map's aspect ratio */
+      background: url('first-2.jpg') no-repeat center center;
+      background-size: 1200px;
+    }
+
+    .building {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      border-radius: 100%;
+      background: rgba(24, 188, 18, 0); /* Semi-transparent overlay */
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .building:hover {
+      background: #8b2222;
+    }
+
+    .tooltip {
+      position: sticky;
+      block-size: auto;
+      width: max-content;
+      background: rgba(0, 0, 0, 0.7);
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 1000000px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+    <label class="switch">
+        <input type="checkbox" id="myToggle">
+        <span class="slider"></span>
+      </label>
+    
+      <script>
+        // Reference the toggle switch and status text
+        const toggle = document.getElementById('myToggle');
+        const statusText = document.getElementById('status');
+    
+        // Add an event listener to handle toggle state changes
+        toggle.addEventListener('change', () => {
+          if (toggle.checked) {
+            statusText.textContent = "Switch is ON";
+           console.log("The switch is ON. Perform some action here.");
+          } else {
+            statusText.textContent = "Switch is OFF";
+            console.log("The switch is OFF. Perform some other action here.");
+          }
+        });
+      </script>
+
+  <div class="map-container">
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Example clickable areas -->
+    <div 
+      class="building" 
+      style="top: 200px; left: 764.5px; width: 23.5px; height: 23.5px;"
+      data-name="MC - Math and Computing" 
+      onclick="window.open('https://uwaterloo.ca/student-life-centre', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 37.75%; left: 50.1%; width: 23.5px; height: 23.5px;" 
+      data-name="QNC - Mike and Ophelia Lazaridis Quantum-Nano Centre" 
+      onclick="window.open('https://uwaterloo.ca/mathematics', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 42.5%; left: 50.57%; width: 23.5px; height: 23.5px;" 
+      data-name="Biology 2 (B2)" 
+      onclick="window.open('https://uwaterloo.ca/engineering', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 57.35%; left: 53.2%; width: 23.5px; height: 23.5px;" 
+      data-name="LIB - Dana Porter Library" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 46.5%; left: 50.57%; width: 23.5px; height: 23.5px;" 
+      data-name="STC - Science Teaching Complex" 
+      onclick="window.open('https://uwaterloo.ca/health-services', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 47.78%; left: 53%; width: 23.5px; height: 23.5px;" 
+      data-name="Biology 1 (B1)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 31.8%; left: 56.6%; width: 23.5px; height: 23.5px;" 
+      data-name="Chemistry 2 (C2)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 29.5%; left: 60.1%; width: 23.5px; height: 23.5px;" 
+      data-name="DC - Davis Centre" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 41.17%; left: 55.4%; width: 23.5px; height: 23.5px;" 
+      data-name="ESC - Earth Science & Chemistry 1" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 42.2%; left: 58.3%; width: 23.5px; height: 23.5px;" 
+      data-name="EIT - Centre for Environmental & Information Technology" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 8.8%; left: 48.87%; width: 23.5px; height: 23.5px;" 
+      data-name="LHI - Lyle S. Hallman Institute for Health Promotion" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 6.35%; left: 52.6%; width: 23.5px; height: 23.5px;" 
+      data-name="BMH - B.C. Matthews Hall" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 18.29%; left: 54.46%; width: 23.5px; height: 23.5px;" 
+      data-name="Mathematics 3 (M3)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 51.3%; left: 57.7%; width: 23.5px; height: 23.5px;" 
+      data-name="PHY - Physics" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 45.9%; left: 63%; width: 23.5px; height: 23.5px;" 
+      data-name="Engineering 3 (E3)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 71.2%; left: 52.75%; width: 23.5px; height: 23.5px;" 
+      data-name="AL - Arts Lecture Hall" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 63.88%; left: 61.56%; width: 23.5px; height: 23.5px;" 
+      data-name="DWE - Douglas Wright Engineering" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 56.2%; left: 63%; width: 23.5px; height: 23.5px;" 
+      data-name="Engineering 2 (E2)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 73%; left: 49.25%; width: 23.5px; height: 23.5px;" 
+      data-name="Environment 1 (EV1)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 73.35%; left: 47.15%; width: 23.5px; height: 23.5px;" 
+      data-name="Environment 2 (EV2)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 69.55%; left: 45.7%; width: 23.5px; height: 23.5px;" 
+      data-name="Environment 3 (EV3)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 80.6%; left: 50.95%; width: 23.5px; height: 23.5px;" 
+      data-name="HH - Hagey Hall of the Humanities" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 61.9%; left: 50.28%; width: 23.5px; height: 23.5px;" 
+      data-name="ML - Modern Langugages" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 86.5%; left: 46.25%; width: 23.5px; height: 23.5px;" 
+      data-name="PAS - Psychology, Anthropology, and Sociology" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 58.7%; left: 59.85%; width: 23.5px; height: 23.5px;" 
+      data-name="RCH - J.R. Coutts Engineering Lecture Hall" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+
+    <div 
+      class="building" 
+      style="top: 67%; left: 33.3%; width: 23.5px; height: 23.5px;" 
+      data-name="UC - United College (Formerly STP)" 
+      onclick="window.open('https://uwaterloo.ca/library', '_blank')"
+    ></div>
+  </div>
+
+  <script>
+    const tooltip = document.getElementById('tooltip');
+    const buildings = document.querySelectorAll('.building');
+
+    buildings.forEach(building => {
+      building.addEventListener('mouseover', (e) => {
+        const name = building.getAttribute('data-name');
+        tooltip.textContent = name;
+        tooltip.style.opacity = '1';
+        tooltip.style.left = `${e.pageX + 10}px`;
+        tooltip.style.top = `${e.pageY + 10}px`;
+      });
+
+      building.addEventListener('mousemove', (e) => {
+        tooltip.style.left = `${e.pageX + 10}px`;
+        tooltip.style.top = `${e.pageY + 10}px`;
+      });
+
+      building.addEventListener('mouseout', () => {
+        tooltip.style.opacity = '0';
+      });
+    });
+  </script>
+</body>
+</html>
