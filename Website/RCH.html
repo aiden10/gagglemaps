@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RCH</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-   
-   `<style>
+    <style>
         .floor-container {
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -31,7 +30,8 @@
         }
 
         .floor-content {
-            display: flex;
+            display: none;
+            flex-wrap: wrap;
             padding: 15px;
             background-color: #fff;
             text-align: center;
@@ -49,6 +49,24 @@
             text-align: center;
         }
 
+        #image-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #dynamic-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+        }
     </style>
     <script>
         function toggleFloor(header) {
@@ -58,10 +76,82 @@
             document.querySelectorAll(".floor-content").forEach(el => el.style.display = "none");
             content.style.display = isVisible ? "none" : "flex";
         }
+
+        async function fetchRoom(roomId, sectionId) {
+            try {
+                const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    displayRoom(data.results, sectionId);
+                } else {
+                    throw new Error(`Failed to fetch room: ${roomId}`);
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById(sectionId).innerHTML = 'Failed to load rooms.';
+            }
+        }
+
+        function displayRoom(room, sectionId) {
+            const roomListContainer = document.getElementById(sectionId);
+            if (room) {
+                roomListContainer.innerHTML = roomListContainer.innerHTML.replace('Loading...', '');
+                const roomHTML = `
+                    <div class="room" data-room-id="${room.RoomID}">
+                        <p>${room.RoomID}: ${room.PeopleCount}</p>
+                    </div>
+                `;
+                roomListContainer.innerHTML += roomHTML;
+            }
+        }
+
+        async function fetchRoomPicture(roomId) {
+            try {
+                const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    displayRoomPicture(data.results);
+                } else {
+                    throw new Error(`Failed to fetch image for ${roomId}`);
+                }
+            } catch (error) {
+                console.error(error);
+                const imageContainer = document.getElementById("image-container");
+                imageContainer.style.display = "none";
+            }
+        }
+
+        function displayRoomPicture(room) {
+            const imageContainer = document.getElementById("image-container");
+            const imgElement = document.getElementById("dynamic-image");
+
+            if (!room.image_url) {
+                console.error("Image URL not found.");
+                return;
+            }
+
+            imgElement.src = room.image_url;
+            imageContainer.style.display = "flex";
+        }
+
+        document.addEventListener('mouseover', function(event) {
+            if (event.target && event.target.classList.contains('room')) {
+                const roomId = event.target.getAttribute('data-room-id');
+                fetchRoomPicture(roomId);
+            }
+        });
+
+        window.onload = function () {
+            const roomIdsSection1 = ['RCH101', 'RCH103', 'RCH105', 'RCH106', 'RCH109', 'RCH110', 'RCH112'];
+            const roomIdsSection2 = ['RCH204', 'RCH205', 'RCH207', 'RCH208', 'RCH209', 'RCH211', 'RCH212'];
+            const roomIdsSection3 = ['RCH301', 'RCH302', 'RCH305', 'RCH306', 'RCH307', 'RCH308', 'RCH309'];
+
+            roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
+            roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
+            roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
+        }
     </script>
-
 </head>
-
 <body>
     <div class="container mt-5">
         <h1 class="text-center mb-4">RCH ROOMS</h1>
@@ -84,8 +174,8 @@
                     <div id="f2" class="room-list"><p>Loading...</p></div>
                 </div>
             </div>
-        </div>
 
+        </div>
         <div class="floor-container">
             <div class="floor-header" onclick="toggleFloor(this)">Floor 3</div>
             <div class="floor-content">
@@ -95,52 +185,9 @@
                 </div>
             </div>
         </div>
+        <div id="image-container">
+            <img id="dynamic-image" alt="Room Image">
+        </div>
     </div>
-
-    <script>
-
-        async function fetchRoom(roomId, sectionId) {
-          try {
-            const response = await fetch(`http://localhost:8000/data/room/${roomID}`);
-            if (response.ok) {
-              const data = await response.json();
-              displayRoom(data.room, sectionId);
-            } else {
-              throw new Error(`Failed to fetch room: ${roomId}`);
-            }
-          } catch (error) {
-            console.error(error);
-            document.getElementById(`${sectionId}`).innerHTML = 'Failed to load rooms.'; 
-          }
-        }
-  
-        function displayRoom(room, sectionId) {
-          const roomListContainer = document.getElementById(`room-list-${sectionId}`);
-          if (room) {
-            const roomHTML = `
-              <div class="room">
-                <p>${room.RoomID}: ${room.PeopleCount}</p>
-              </div>
-            `;
-            roomListContainer.innerHTML += roomHTML;
-          }
-        }
-  
-        window.onload = function() {
-  
-              // Room IDs for Section 1
-              const roomIdsSection1 = ['RCH-101', 'RCH-103', 'RCH-105', 'RCH-106', 'RCH-109', 'RCH-110', 'RCH-112'];
-              roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
-  
-              // Room IDs for Section 2
-              const roomIdsSection2 = ['RCH-204', 'RCH-205', 'RCH-207', 'RCH-208', 'RCH-209', 'RCH-211', 'RCH-212'];
-              roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
-  
-              // Room IDs for Section 3
-              const roomIdsSection3 = ['RCH-301', 'RCH-302','RCH-305', 'RCH-306', 'RCH-307', 'RCH-308','RCH-309'];
-              roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
-          }
-      </script>
-      
 </body>
 </html>
