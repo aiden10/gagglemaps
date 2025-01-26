@@ -6,13 +6,10 @@
   <title>University of Waterloo Interactive Map</title>
   <style>
     .switch {
-      position: fixed; /* Fixed position for top-right placement */
-      top: 10px;
-      right: 10px;
-      z-index: 1000; /* Ensures it stays on top of other elements */
+      position: relative;
       display: inline-block;
-      width: 50px;
-      height: 25px;
+      width: 60px;
+      height: 34px;
     }
 
     .switch input {
@@ -30,37 +27,47 @@
       bottom: 0;
       background-color: #ccc;
       transition: 0.4s;
-      border-radius: 25px;
+      border-radius: 34px;
     }
 
-    .slider::before {
+    .slider:before {
       position: absolute;
       content: "";
-      height: 19px;
-      width: 19px;
-      left: 3px;
-      bottom: 3px;
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
       background-color: white;
       transition: 0.4s;
       border-radius: 50%;
     }
 
     input:checked + .slider {
-      background-color: #4CAF50;
+      background-color: #4caf50;
     }
 
-    input:checked + .slider::before {
-      transform: translateX(25px);
+    input:checked + .slider:before {
+      transform: translateX(26px);
     }
 
-    .dot {
-  height: 25px;
-  width: 25px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
+    .switch-container {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
 
+    /* Hidden iframe */
+    #parallelIframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none; 
+      z-index: 999; 
+    }
 
     body {
       font-family: Arial, sans-serif;
@@ -92,6 +99,7 @@
       transition: background 0.3s ease;
     }
 
+
     .building:hover {
       background: #8b2222;
     }
@@ -113,35 +121,21 @@
 </head>
 <body>
 
+  <div class="switch-container">
     <label class="switch">
-        <input type="checkbox" id="myToggle">
-        <span class="slider"></span>
-      </label>
+      <input type="checkbox" id="executeSwitch">
+      <span class="slider"></span>
+    </label>
+  </div>
     
-      <script>
-        // Reference the toggle switch and status text
-        const toggle = document.getElementById('myToggle');
-        const statusText = document.getElementById('status');
-    
-        // Add an event listener to handle toggle state changes
-        toggle.addEventListener('change', () => {
-          if (toggle.checked) {
-            statusText.textContent = "Switch is ON";
-           console.log("The switch is ON. Perform some action here.");
-          } else {
-            statusText.textContent = "Switch is OFF";
-            console.log("The switch is OFF. Perform some other action here.");
-          }
-        });
-      </script>
+  <iframe id="parallelIframe"></iframe>
 
   <div class="map-container">
     <div class="tooltip" id="tooltip"></div>
 
-    <!-- Example clickable areas -->
     <div 
       class="building" 
-      style="top: 200px; left: 764.5px; width: 23.5px; height: 23.5px;"
+      style="top: 29.7%; left: 53.1%; width: 23.5px; height: 23.5px;"
       data-name="MC - Math and Computing" 
       onclick="window.open('https://uwaterloo.ca/student-life-centre', '_blank')"
     ></div>
@@ -322,6 +316,7 @@
     ></div>
   </div>
 
+
   <script>
     const tooltip = document.getElementById('tooltip');
     const buildings = document.querySelectorAll('.building');
@@ -344,6 +339,23 @@
         tooltip.style.opacity = '0';
       });
     });
+
+    const executeSwitch = document.getElementById('executeSwitch');
+    const iframe = document.getElementById('parallelIframe');
+
+    executeSwitch.addEventListener('change', () => {
+      if (executeSwitch.checked) {
+        iframe.src = 'heatmap.html'; 
+        iframe.style.display = 'block'; 
+        console.log('Second HTML file is executing.');
+      } else {
+        iframe.src = '';
+        iframe.style.display = 'none';
+        console.log('Second HTML file execution stopped.');
+      }
+    });
+
+    
   </script>
 </body>
 </html>
