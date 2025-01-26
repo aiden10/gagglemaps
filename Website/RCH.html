@@ -98,14 +98,15 @@
     </div>
 
     <script>
-
         async function fetchRoom(roomId, sectionId) {
           try {
-            const response = await fetch(`http://localhost:8000/data/room/${roomID}`);
+            const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
             if (response.ok) {
               const data = await response.json();
-              displayRoom(data.room, sectionId);
-            } else {
+              console.log(data);
+              displayRoom(data.results, sectionId);
+            } 
+            else {
               throw new Error(`Failed to fetch room: ${roomId}`);
             }
           } catch (error) {
@@ -115,8 +116,10 @@
         }
   
         function displayRoom(room, sectionId) {
-          const roomListContainer = document.getElementById(`room-list-${sectionId}`);
+          const roomListContainer = document.getElementById(`${sectionId}`);
+          console.log(room);
           if (room) {
+            roomListContainer.innerHTML = roomListContainer.innerHTML.replace('Loading...', '');
             const roomHTML = `
               <div class="room">
                 <p>${room.RoomID}: ${room.PeopleCount}</p>
@@ -127,18 +130,14 @@
         }
   
         window.onload = function() {
-  
-              // Room IDs for Section 1
-              const roomIdsSection1 = ['RCH-101', 'RCH-103', 'RCH-105', 'RCH-106', 'RCH-109', 'RCH-110', 'RCH-112'];
-              roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
-  
-              // Room IDs for Section 2
-              const roomIdsSection2 = ['RCH-204', 'RCH-205', 'RCH-207', 'RCH-208', 'RCH-209', 'RCH-211', 'RCH-212'];
-              roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
-  
-              // Room IDs for Section 3
-              const roomIdsSection3 = ['RCH-301', 'RCH-302','RCH-305', 'RCH-306', 'RCH-307', 'RCH-308','RCH-309'];
-              roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
+            const roomIdsSection1 = ['RCH101', 'RCH103', 'RCH105', 'RCH106', 'RCH109', 'RCH110', 'RCH112'];
+            const roomIdsSection2 = ['RCH204', 'RCH205', 'RCH207', 'RCH208', 'RCH209', 'RCH211', 'RCH212'];
+            const roomIdsSection3 = ['RCH301', 'RCH302','RCH305', 'RCH306', 'RCH307', 'RCH308','RCH309'];
+            roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
+
+            roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
+
+            roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
           }
       </script>
       
