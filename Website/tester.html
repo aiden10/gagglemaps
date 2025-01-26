@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCH</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .floor-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .floor-header {
+            background-color: #f8f9faab;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        .floor-header:hover {
+            background-color: #e9ecefaf;
+        }
+
+        .floor-content {
+            display: none;
+            flex-wrap: wrap;
+            padding: 15px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .floor-content img {
+            max-width: 30%;
+            height: auto;
+            border-radius: 8px;
+            flex: 1;
+        }
+
+        .chart {
+            flex: 1;
+            text-align: center;
+        }
+
+        #image-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #dynamic-image {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function toggleFloor(header) {
+            const content = header.nextElementSibling;
+            const isVisible = content.style.display === "flex";
+
+            document.querySelectorAll(".floor-content").forEach(el => el.style.display = "none");
+            content.style.display = isVisible ? "none" : "flex";
+        }
+
+        async function fetchRoom(roomId, sectionId) {
+            try {
+                const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    displayRoom(data.results, sectionId);
+                } else {
+                    throw new Error(`Failed to fetch room: ${roomId}`);
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById(sectionId).innerHTML = 'Failed to load rooms.';
+            }
+        }
+
+        function displayRoom(room, sectionId) {
+            const roomListContainer = document.getElementById(sectionId);
+            if (room) {
+                roomListContainer.innerHTML = roomListContainer.innerHTML.replace('Loading...', '');
+                const roomHTML = `
+                    <div class="room" data-room-id="${room.RoomID}">
+                        <p>${room.RoomID}: ${room.PeopleCount}</p>
+                    </div>
+                `;
+                roomListContainer.innerHTML += roomHTML;
+            }
+        }
+
+        async function fetchRoomPicture(roomId) {
+            try {
+                const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    displayRoomPicture(data.results);
+                } else {
+                    throw new Error(`Failed to fetch image for ${roomId}`);
+                }
+            } catch (error) {
+                console.error(error);
+                const imageContainer = document.getElementById("image-container");
+                imageContainer.style.display = "none";
+            }
+        }
+
+        function displayRoomPicture(room) {
+            const imageContainer = document.getElementById("image-container");
+            const imgElement = document.getElementById("dynamic-image");
+
+            if (!room.image_url) {
+                console.error("Image URL not found.");
+                return;
+            }
+
+            imgElement.src = room.image_url;
+            imageContainer.style.display = "flex";
+        }
+
+        document.addEventListener('mouseover', function(event) {
+            if (event.target && event.target.closest('.room')) {
+                const roomElement = event.target.closest('.room');
+                const roomId = roomElement.getAttribute('data-room-id');
+                if (roomId) {
+                    fetchRoomPicture(roomId);
+                }
+            }
+        });
+
+        window.onload = function () {
+            const roomIdsSection1 = ['RCH101', 'RCH103', 'RCH105', 'RCH106', 'RCH109', 'RCH110', 'RCH112'];
+            const roomIdsSection2 = ['RCH204', 'RCH205', 'RCH207', 'RCH208', 'RCH209', 'RCH211', 'RCH212'];
+            const roomIdsSection3 = ['RCH301', 'RCH302', 'RCH305', 'RCH306', 'RCH307', 'RCH308', 'RCH309'];
+
+            roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
+            roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
+            roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">RCH ROOMS</h1>
+
+        <div class="floor-container">
+            <div class="floor-header" onclick="toggleFloor(this)">Floor 1</div>
+            <div class="floor-content">
+                <img src="floorplans/RCH-1.png" alt="Floor 1">
+                <div class="chart">
+                    <div id="f1" class="room-list"><p>Loading...</p></div>
+                </div>
+                <div id="image-container">
+                  <img id="dynamic-image" alt="Room Image">
+                </div>
+            </div>
+        </div>
+
+        <div class="floor-container">
+            <div class="floor-header" onclick="toggleFloor(this)">Floor 2</div>
+            <div class="floor-content">
+                <img src="floorplans/RCH-2.png" alt="Floor 2">
+                <div class="chart">
+                    <div id="f2" class="room-list"><p>Loading...</p></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="floor-container">
+            <div class="floor-header" onclick="toggleFloor(this)">Floor 3</div>
+            <div class="floor-content">
+                <img src="floorplans/RCH-3.png" alt="Floor 3">
+                <div class="chart">
+                    <div id="f3" class="room-list"><p>Loading...</p></div>
+                </div>
+            </div>
+        </div>
+        <div id="image-container">
+            <img id="dynamic-image" alt="Room Image">
+        </div>
+    </div>
+</body>
+</html>
