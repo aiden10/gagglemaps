@@ -150,7 +150,8 @@
             const imageContainer = document.getElementById("image-container");
             const imageElement = document.getElementById("dynamic-image");
 
-            if (!imageContainer.contains(event.target) && event.target !== imageElement) {
+            console.log(event.target);
+            if (!event.target !== imageElement) {
                 imageContainer.style.display = "none";
             }
         });
