@@ -97,7 +97,7 @@
             if (room) {
                 roomListContainer.innerHTML = roomListContainer.innerHTML.replace('Loading...', '');
                 const roomHTML = `
-                    <div class="room" data-room-id="${room.RoomID}">
+                    <div class="room" id="${room.RoomID}">
                         <p>${room.RoomID}: ${room.PeopleCount}</p>
                     </div>
                 `;
@@ -107,12 +107,14 @@
 
         async function fetchRoomPicture(roomId) {
             try {
-                const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
+                const response = await fetch(`http://localhost:8000/feed/${roomId}`);
                 if (response.ok) {
-                    const data = await response.json();
-                    displayRoomPicture(data.results);
+                    const data = await response.blob().then(blob =>{
+                        const imageUrl = URL.createObjectURL(blob);
+                        displayRoomPicture(imageUrl);
+                    })
                 } else {
-                    throw new Error(`Failed to fetch image for ${roomId}`);
+                    console.log(`No image found for ${roomId}`);
                 }
             } catch (error) {
                 console.error(error);
@@ -121,23 +123,23 @@
             }
         }
 
-        function displayRoomPicture(room) {
+        function displayRoomPicture(image_url) {
             const imageContainer = document.getElementById("image-container");
             const imgElement = document.getElementById("dynamic-image");
 
-            if (!room.image_url) {
+            if (!image_url) {
                 console.error("Image URL not found.");
                 return;
             }
 
-            imgElement.src = room.image_url;
+            imgElement.src = image_url;
             imageContainer.style.display = "flex";
         }
 
         document.addEventListener('mouseover', function(event) {
-            if (event.target && event.target.closest('.room')) {
+            if (event.target.parentElement.className === "room") {
                 const roomElement = event.target.closest('.room');
-                const roomId = roomElement.getAttribute('data-room-id');
+                const roomId = roomElement.getAttribute('id');
                 if (roomId) {
                     fetchRoomPicture(roomId);
                 }
@@ -191,51 +193,6 @@
         <div id="image-container">
             <img id="dynamic-image" alt="Room Image">
         </div>
-    </div>
-
-    <script>
-        async function fetchRoom(roomId, sectionId) {
-          try {
-            const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
-            if (response.ok) {
-              const data = await response.json();
-              console.log(data);
-              displayRoom(data.results, sectionId);
-            } 
-            else {
-              throw new Error(`Failed to fetch room: ${roomId}`);
-            }
-          } catch (error) {
-            console.error(error);
-            document.getElementById(`${sectionId}`).innerHTML = 'Failed to load rooms.'; 
-          }
-        }
-  
-        function displayRoom(room, sectionId) {
-          const roomListContainer = document.getElementById(`${sectionId}`);
-          console.log(room);
-          if (room) {
-            roomListContainer.innerHTML = roomListContainer.innerHTML.replace('Loading...', '');
-            const roomHTML = `
-              <div class="room">
-                <p>${room.RoomID}: ${room.PeopleCount}</p>
-              </div>
-            `;
-            roomListContainer.innerHTML += roomHTML;
-          }
-        }
-  
-        window.onload = function() {
-            const roomIdsSection1 = ['RCH101', 'RCH103', 'RCH105', 'RCH106', 'RCH109', 'RCH110', 'RCH112'];
-            const roomIdsSection2 = ['RCH204', 'RCH205', 'RCH207', 'RCH208', 'RCH209', 'RCH211', 'RCH212'];
-            const roomIdsSection3 = ['RCH301', 'RCH302','RCH305', 'RCH306', 'RCH307', 'RCH308','RCH309'];
-            roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
-
-            roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
-
-            roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
-          }
-      </script>
-      
+    </div>      
 </body>
 </html>

@@ -55,7 +55,7 @@ async def get_image(room_id):
         res, im_png = cv2.imencode(".png", image)
         return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
     
-    return JSONResponse(content={'results': 'image not in container'}, status_code=200)
+    return JSONResponse(content={'results': 'image not in container'}, status_code=404)
 
 @app.websocket("/ws/{room_id}")
 async def websocket_endpoint(websocket: WebSocket, room_id):
@@ -68,7 +68,7 @@ async def websocket_endpoint(websocket: WebSocket, room_id):
                 await websocket.send_json({"room": room_id, "message": text})
             else:
                 print(f'{room_id} not in container.audio')
-                
+
             await asyncio.sleep(2)
 
     except WebSocketDisconnect:
