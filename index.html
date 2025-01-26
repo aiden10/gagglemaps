@@ -94,12 +94,15 @@
       flex-direction: column;
       position: absolute;
       border-radius: 100%;
-      background: rgba(24, 188, 18, 0); /* Semi-transparent overlay */
+      /* border-color: #8b2222;
+      border-width: 3px;
+      border-style: solid; */
+      background: rgba(121, 24, 4, 0.515);
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
       z-index: 10;
+      box-shadow: 0 0 10px rgba(156, 159, 60, 0.5); /* Soft glow effect */
     }
-
 
     .building:hover {
       background: #8b2222;
@@ -366,18 +369,21 @@
            transform: translate(-50%, -50%);
            background: radial-gradient(#de1111db, #e1a3a3e7);
            border-radius: 50%; 
-           cursor: pointer; 
            transition: transform 0.2s ease; 
+           opacity: 0.6;
       }
      
        </style>
      
      
      <script>
-     
+      var circlesList = [];
      var all_rooms = ["AL", "B1", "B2", "DC", "DWE", "E2", "EIT", "EV1", "EV2", "EV3",
          "LHI", "HH", "M3", "MC", "ML", "PAS", "PHY", "QNC", "RCH", "STC", "UTD"];
-     
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
      
      async function getData(building) {
          const url = `http://localhost:8000/buildings/${building}`;
@@ -503,17 +509,33 @@
          div.style.left = "34.2%";
          div.style.top = "68.8%";
      }
+         circlesList.push(div);
          document.body.appendChild(div);
      }
      
-     window.onload = async function (){
-         for (let i = 0; i < all_rooms.length; i += 1){
+     async function loadHeatmap(){
+      for (let i = 0; i < circlesList.length; i++){
+        let circleDiv = circlesList[i];
+        circleDiv.style.display = 'none';
+        await sleep(100);
+      }
+      circlesList = [];
+      for (let i = 0; i < all_rooms.length; i += 1){
              const data = await getData(all_rooms[i]);
              people = data.results.PeopleCount;
              console.log(data);
              makecircle(parseInt(people) / 4, all_rooms[i]);
+             await sleep(100);
          }
+
      }
+
+     window.onload = function (){
+      loadHeatmap();
+      const interval = setInterval(function() {
+        loadHeatmap();
+      }, 10000);
+    }
      
      </script>     
 </body>
