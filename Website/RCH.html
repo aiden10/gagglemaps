@@ -135,9 +135,12 @@
         }
 
         document.addEventListener('mouseover', function(event) {
-            if (event.target && event.target.classList.contains('room')) {
-                const roomId = event.target.getAttribute('data-room-id');
-                fetchRoomPicture(roomId);
+            if (event.target && event.target.closest('.room')) {
+                const roomElement = event.target.closest('.room');
+                const roomId = roomElement.getAttribute('data-room-id');
+                if (roomId) {
+                    fetchRoomPicture(roomId);
+                }
             }
         });
 
