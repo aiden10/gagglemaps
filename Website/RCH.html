@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCH</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+   `<style>
+        .floor-container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .floor-header {
+            background-color: #f8f9faab;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        .floor-header:hover {
+            background-color: #e9ecefaf;
+        }
+
+        .floor-content {
+            display: none;
+            padding: 15px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .floor-content img {
+            max-width: 40%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function toggleFloor(header) {
+            const content = header.nextElementSibling;
+            const isVisible = content.style.display === "block";
+
+            document.querySelectorAll(".floor-content").forEach(el => el.style.display = "none");
+            content.style.display = isVisible ? "none" : "block";
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">RCH ROOMS</h1>
+
+        <div class="floor-container">
+            <div class="floor-header" onclick="toggleFloor(this)">Floor 1</div>
+            <div class="floor-content">
+                <img src="floorplans/RCH-1.png" alt="Floor 1">
+            </div>
+        </div>
+
+        <div class="floor-container">
+            <div class="floor-header" onclick="toggleFloor(this)">Floor 2</div>
+            <div class="floor-content">
+                <img src="floorplans/RCH-2.png" alt="Floor 2">
+            </div>
+        </div>
+
+        <div class="floor-container">
+            <div class="floor-header" onclick="toggleFloor(this)">Floor 3</div>
+            <div class="floor-content">
+                <img src="floorplans/RCH-3.png" alt="Floor 3">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
