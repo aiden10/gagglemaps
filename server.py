@@ -1,5 +1,5 @@
-from fastapi import FastAPI, status, HTTPException
-from fastapi.responses import JSONResponse, Response
+from fastapi import FastAPI, status, HTTPException, WebSocket, WebSocketDisconnect
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from DBHandler import DBHandler
 from tracking import main
@@ -7,13 +7,16 @@ import uvicorn
 import cv2
 import threading
 import io
+import asyncio
 from starlette.responses import StreamingResponse
 
-class ImageContainer():
+class Container():
     def __init__(self):
         self.image = {}
+        self.audio = {}
 
-image_container = ImageContainer()
+container = Container()
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -47,17 +50,35 @@ async def get_building_population(building_code):
 
 @app.get("/feed/{room_id}")
 async def get_image(room_id):
-    print(f'{room_id} in {image_container.image.keys()}')
-    if room_id in image_container.image:
-        image = image_container.image[room_id]
+    if room_id in container.image:
+        image = container.image[room_id]
         res, im_png = cv2.imencode(".png", image)
         return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
     
-    return JSONResponse(content={'results': 'image not in image_container'}, status_code=200)
+    return JSONResponse(content={'results': 'image not in container'}, status_code=200)
+
+@app.websocket("/ws/{room_id}")
+async def websocket_endpoint(websocket: WebSocket, room_id):
+    await websocket.accept()
+    try:
+        while True:
+            if room_id in container.audio:
+                text = container.audio[room_id]
+                print(f'room_id: {room_id} message: {text}')
+                await websocket.send_json({"room": room_id, "message": text})
+            else:
+                print(f'{room_id} not in container.audio')
+                
+            await asyncio.sleep(2)
+
+    except WebSocketDisconnect:
+        print(f"WebSocket for {room_id} disconnected")
+    except Exception as e:
+        print(f"Error in WebSocket: {e}")
 
 def start_server():
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 if __name__ == '__main__':
     threading.Thread(target=start_server, daemon=True).start()
-    main('110', 'RCH', image_container)
+    main('110', 'RCH', container)

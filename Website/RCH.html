@@ -189,5 +189,50 @@
             <img id="dynamic-image" alt="Room Image">
         </div>
     </div>
+
+    <script>
+        async function fetchRoom(roomId, sectionId) {
+          try {
+            const response = await fetch(`http://localhost:8000/rooms/${roomId}`);
+            if (response.ok) {
+              const data = await response.json();
+              console.log(data);
+              displayRoom(data.results, sectionId);
+            } 
+            else {
+              throw new Error(`Failed to fetch room: ${roomId}`);
+            }
+          } catch (error) {
+            console.error(error);
+            document.getElementById(`${sectionId}`).innerHTML = 'Failed to load rooms.'; 
+          }
+        }
+  
+        function displayRoom(room, sectionId) {
+          const roomListContainer = document.getElementById(`${sectionId}`);
+          console.log(room);
+          if (room) {
+            roomListContainer.innerHTML = roomListContainer.innerHTML.replace('Loading...', '');
+            const roomHTML = `
+              <div class="room">
+                <p>${room.RoomID}: ${room.PeopleCount}</p>
+              </div>
+            `;
+            roomListContainer.innerHTML += roomHTML;
+          }
+        }
+  
+        window.onload = function() {
+            const roomIdsSection1 = ['RCH101', 'RCH103', 'RCH105', 'RCH106', 'RCH109', 'RCH110', 'RCH112'];
+            const roomIdsSection2 = ['RCH204', 'RCH205', 'RCH207', 'RCH208', 'RCH209', 'RCH211', 'RCH212'];
+            const roomIdsSection3 = ['RCH301', 'RCH302','RCH305', 'RCH306', 'RCH307', 'RCH308','RCH309'];
+            roomIdsSection1.forEach(roomId => fetchRoom(roomId, 'f1'));
+
+            roomIdsSection2.forEach(roomId => fetchRoom(roomId, 'f2'));
+
+            roomIdsSection3.forEach(roomId => fetchRoom(roomId, 'f3'));
+          }
+      </script>
+      
 </body>
 </html>

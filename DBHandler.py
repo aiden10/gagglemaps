@@ -28,7 +28,6 @@ class DBHandler:
         try:
             self.cursor.execute(query)
             results = self.cursor.fetchall()
-            print(results)
             results = {"RoomID": results[0][0], "RoomNumber": results[0][1], "Building": results[0][2], "BuildingCode": results[0][3], "PeopleCount": results[0][4]}
         except Exception as e:
             print(f'Error occurred while querying database in function get_room: {e}')
@@ -38,11 +37,10 @@ class DBHandler:
     
     def update_room(self, building, room_number, quantity):
         query = f'UPDATE rooms SET PeopleCount = {quantity} WHERE RoomID = \'{building}{str(room_number)}\''
-        print(f'Attempting to execute query: {query}')
         try:
             self.cursor.execute(query)
             self.db.commit()
-            print(f"{self.cursor.rowcount} record(s) affected")
+            # print(f"{self.cursor.rowcount} record(s) affected")
             return True
         except Exception as e:
             print(f'Error occurred while updating database in function update_room: {e}')
