@@ -70,7 +70,7 @@ class DBHandler:
         except Exception as e:
             print(f"Error executing query: {e}")
         for room_id in room_ids:
-            quantity = random.randint(0, 50)
+            quantity = random.randint(10, 100)
             query = f'UPDATE rooms SET PeopleCount = {quantity} WHERE RoomID = \'{room_id[0]}\''
             try:
                 self.cursor.execute(query)

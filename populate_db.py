@@ -1,5 +1,7 @@
 from DBHandler import DBHandler
-
+import time
 db = DBHandler()
 
-db.randomize_populations()
+while True:
+    db.randomize_populations()
+    time.sleep(5)
