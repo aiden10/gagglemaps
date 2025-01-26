@@ -1,0 +1,127 @@
+RoomID,RoomNumber,Building,BuildingCode,PeopleCount
+AL105,105,"Arts Lecture Hall",AL,4
+AL113,113,"Arts Lecture Hall",AL,13
+AL116,116,"Arts Lecture Hall",AL,0
+AL124,124,"Arts Lecture Hall",AL,49
+AL208,208,"Arts Lecture Hall",AL,47
+AL209,209,"Arts Lecture Hall",AL,15
+AL210,210,"Arts Lecture Hall",AL,11
+AL211,211,"Arts Lecture Hall",AL,49
+B1271,271,"Biology 1",B1,10
+B2350,350,"Biology 2",B2,12
+DC1350,1350,"William G. Davis Computer Research Centre",DC,26
+DC1351,1351,"William G. Davis Computer Research Centre",DC,39
+DWE1501,1501,"Douglas Wright Engineering Building",DWE,35
+DWE1502,1502,"Douglas Wright Engineering Building",DWE,9
+DWE1515,1515,"Douglas Wright Engineering Building",DWE,14
+DWE2527,2527,"Douglas Wright Engineering Building",DWE,40
+DWE3516,3516,"Douglas Wright Engineering Building",DWE,43
+DWE3517,3517,"Douglas Wright Engineering Building",DWE,26
+DWE3518,3518,"Douglas Wright Engineering Building",DWE,37
+DWE3519,3519,"Douglas Wright Engineering Building",DWE,29
+DWE3522,3522,"Douglas Wright Engineering Building",DWE,1
+DWE3522A,3522A,"Douglas Wright Engineering Building",DWE,7
+E21732,1732,"Engineering 2",E2,48
+E21736,1736,"Engineering 2",E2,17
+EIT1015,1015,"Centre for Environmental and Information Technology",EIT,11
+EV1132,132,"Environment 1",EV1,28
+EV1225,225,"Environment 1",EV1,47
+EV1350,350,"Environment 1",EV1,20
+EV22002,2002,"Environment 2",EV2,46
+EV31408,1408,"Environment 3",EV3,30
+EV33406,3406,"Environment 3",EV3,29
+EV33408,3408,"Environment 3",EV3,18
+EV33412,3412,"Environment 3",EV3,3
+EV34408,4408,"Environment 3",EV3,16
+EV34412,4412,"Environment 3",EV3,19
+HH1101,1101,"J.G. Hagey Hall of the Humanities",HH,32
+HH1102,1102,"J.G. Hagey Hall of the Humanities",HH,3
+HH1104,1104,"J.G. Hagey Hall of the Humanities",HH,15
+HH1106,1106,"J.G. Hagey Hall of the Humanities",HH,15
+HH1108,1108,"J.G. Hagey Hall of the Humanities",HH,31
+HH119,119,"J.G. Hagey Hall of the Humanities",HH,17
+HH123,123,"J.G. Hagey Hall of the Humanities",HH,34
+HH124,124,"J.G. Hagey Hall of the Humanities",HH,24
+HH138,138,"J.G. Hagey Hall of the Humanities",HH,29
+HH139,139,"J.G. Hagey Hall of the Humanities",HH,47
+HH150,150,"J.G. Hagey Hall of the Humanities",HH,40
+HH2107,2107,"J.G. Hagey Hall of the Humanities",HH,31
+HH227,227,"J.G. Hagey Hall of the Humanities",HH,3
+HH259,259,"J.G. Hagey Hall of the Humanities",HH,31
+HH334,334,"J.G. Hagey Hall of the Humanities",HH,9
+HH336,336,"J.G. Hagey Hall of the Humanities",HH,14
+HH344,344,"J.G. Hagey Hall of the Humanities",HH,15
+HH345,345,"J.G. Hagey Hall of the Humanities",HH,14
+LHI1689,1689,"Lyle S. Hallman Institute for Health Promotion ",LHI,44
+M31006,1006,"Mathematics 3",M3,26
+MC1056,1056,"Mathematics and Computer Building",MC,3
+MC1085,1085,"Mathematics and Computer Building",MC,32
+MC2017,2017,"Mathematics and Computer Building",MC,13
+MC2034,2034,"Mathematics and Computer Building",MC,20
+MC2035,2035,"Mathematics and Computer Building",MC,23
+MC2038,2038,"Mathematics and Computer Building",MC,0
+MC2054,2054,"Mathematics and Computer Building",MC,8
+MC2065,2065,"Mathematics and Computer Building",MC,45
+MC2066,2066,"Mathematics and Computer Building",MC,0
+MC4020,4020,"Mathematics and Computer Building",MC,2
+MC4021,4021,"Mathematics and Computer Building",MC,20
+MC4040,4040,"Mathematics and Computer Building",MC,43
+MC4041,4041,"Mathematics and Computer Building",MC,50
+MC4042,4042,"Mathematics and Computer Building",MC,36
+MC4045,4045,"Mathematics and Computer Building",MC,46
+MC4058,4058,"Mathematics and Computer Building",MC,37
+MC4059,4059,"Mathematics and Computer Building",MC,39
+MC4060,4060,"Mathematics and Computer Building",MC,29
+MC4061,4061,"Mathematics and Computer Building",MC,50
+MC4063,4063,"Mathematics and Computer Building",MC,48
+MC4064,4064,"Mathematics and Computer Building",MC,45
+ML242,242,"Modern Languages",ML,17
+ML246,246,"Modern Languages",ML,49
+ML311,311,"Modern Languages",ML,45
+ML315,315,"Modern Languages",ML,31
+ML349,349,"Modern Languages",ML,5
+ML354,354,"Modern Languages",ML,12
+PAS1229,1229,"Psychology, Anthropology, Sociology",PAS,44
+PAS1241,1241,"Psychology, Anthropology, Sociology",PAS,48
+PAS2083,2083,"Psychology, Anthropology, Sociology",PAS,45
+PAS2084,2084,"Psychology, Anthropology, Sociology",PAS,16
+PAS2085,2085,"Psychology, Anthropology, Sociology",PAS,29
+PAS2086,2086,"Psychology, Anthropology, Sociology",PAS,27
+PHY145,145,Physics,PHY,32
+PHY150,150,Physics,PHY,20
+PHY235,235,Physics,PHY,37
+PHY313,313,Physics,PHY,27
+QNC1502,1502,"Quantum Nano Centre",QNC,27
+QNC1506,1506,"Quantum Nano Centre",QNC,10
+QNC1507,1507,"Quantum Nano Centre",QNC,29
+QNC2501,2501,"Quantum Nano Centre",QNC,38
+QNC2502,2502,"Quantum Nano Centre",QNC,47
+RCH101,101,"J.R. Coutts Engineering Lecture Hall",RCH,1
+RCH103,103,"J.R. Coutts Engineering Lecture Hall",RCH,48
+RCH105,105,"J.R. Coutts Engineering Lecture Hall",RCH,22
+RCH106,106,"J.R. Coutts Engineering Lecture Hall",RCH,12
+RCH109,109,"J.R. Coutts Engineering Lecture Hall",RCH,7
+RCH110,110,"J.R. Coutts Engineering Lecture Hall",RCH,1
+RCH112,112,"J.R. Coutts Engineering Lecture Hall",RCH,5
+RCH204,204,"J.R. Coutts Engineering Lecture Hall",RCH,46
+RCH205,205,"J.R. Coutts Engineering Lecture Hall",RCH,23
+RCH206,206,"J.R. Coutts Engineering Lecture Hall",RCH,9
+RCH207,207,"J.R. Coutts Engineering Lecture Hall",RCH,31
+RCH208,208,"J.R. Coutts Engineering Lecture Hall",RCH,3
+RCH209,209,"J.R. Coutts Engineering Lecture Hall",RCH,18
+RCH211,211,"J.R. Coutts Engineering Lecture Hall",RCH,18
+RCH212,212,"J.R. Coutts Engineering Lecture Hall",RCH,37
+RCH301,301,"J.R. Coutts Engineering Lecture Hall",RCH,47
+RCH302,302,"J.R. Coutts Engineering Lecture Hall",RCH,11
+RCH305,305,"J.R. Coutts Engineering Lecture Hall",RCH,45
+RCH306,306,"J.R. Coutts Engineering Lecture Hall",RCH,14
+RCH307,307,"J.R. Coutts Engineering Lecture Hall",RCH,33
+RCH308,308,"J.R. Coutts Engineering Lecture Hall",RCH,5
+RCH309,309,"J.R. Coutts Engineering Lecture Hall",RCH,41
+STC0010,0010,"Science Teaching Complex",STC,11
+STC0020,0020,"Science Teaching Complex",STC,36
+STC0040,0040,"Science Teaching Complex",STC,34
+STC0050,0050,"Science Teaching Complex",STC,21
+STC0060,0060,"Science Teaching Complex",STC,14
+STC1012,1012,"Science Teaching Complex",STC,25
+UTD105,105,"United College",UTD,49
