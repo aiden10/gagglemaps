@@ -24,7 +24,9 @@ def main(room, building, container):
                     text = r.recognize_google(audio_listened)
                 except Exception as e:
                     print('No words detected')
-                if room_id in container.audio and text != '':
+                if text == '':
+                    continue
+                if room_id in container.audio:
                     container.audio[room_id] = text
                 else:
                     container.audio.update({room_id: text})

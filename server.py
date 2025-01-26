@@ -57,22 +57,16 @@ async def get_image(room_id):
     
     return JSONResponse(content={'results': 'image not in container'}, status_code=404)
 
-@app.websocket("/ws/{room_id}")
-async def websocket_endpoint(websocket: WebSocket, room_id):
+@app.websocket("/ws/")
+async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     try:
         while True:
-            if room_id in container.audio:
-                text = container.audio[room_id]
-                print(f'room_id: {room_id} message: {text}')
-                await websocket.send_json({"room": room_id, "message": text})
-            else:
-                print(f'{room_id} not in container.audio')
-
-            await asyncio.sleep(2)
+                await websocket.send_json(container.audio)
+                await asyncio.sleep(2)
 
     except WebSocketDisconnect:
-        print(f"WebSocket for {room_id} disconnected")
+        print("WebSocket for disconnected")
     except Exception as e:
         print(f"Error in WebSocket: {e}")
 
