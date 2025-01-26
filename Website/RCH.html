@@ -146,6 +146,16 @@
             }
         });
 
+        document.addEventListener('click', function(event) {
+            const imageContainer = document.getElementById("image-container");
+            const imageElement = document.getElementById("dynamic-image");
+
+            if (!imageContainer.contains(event.target) && event.target !== imageElement) {
+                imageContainer.style.display = "none";
+            }
+        });
+
+
         window.onload = function () {
             const roomIdsSection1 = ['RCH101', 'RCH103', 'RCH105', 'RCH106', 'RCH109', 'RCH110', 'RCH112'];
             const roomIdsSection2 = ['RCH204', 'RCH205', 'RCH207', 'RCH208', 'RCH209', 'RCH211', 'RCH212'];
